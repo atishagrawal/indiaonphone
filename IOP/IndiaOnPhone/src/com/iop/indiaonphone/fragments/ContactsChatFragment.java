@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.AsyncTasks.GetChatContactsAPI;
@@ -44,7 +45,9 @@ public class ContactsChatFragment extends Fragment {
 
 		// Firing GetChatContactsAPI
 
-		new GetChatContactsAPI(getActivity()).execute();
+		ListView listViewChatContacts=(ListView)rootView.findViewById(R.id.listChatContacts);
+		
+		new GetChatContactsAPI(getActivity(), listViewChatContacts).execute();
 
 		return rootView;
 	}
