@@ -36,8 +36,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		SharedPreferences sharedPref = getSharedPreferences(
-				ApplicationUtils.SHARED_PREFERENCES_FILE_NAME,
-				Context.MODE_PRIVATE);
+				ApplicationUtils.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
 
 		String mobile = sharedPref.getString(JSONUtils.MOBILE, null);
 		if (TextUtils.isEmpty(mobile)) {

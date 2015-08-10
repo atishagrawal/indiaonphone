@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iop.indiaonphone.R;
+import com.iop.indiaonphone.AsyncTasks.GetChatContactsAPI;
 
 /**
  * @author Atish Agrawal
@@ -38,8 +39,13 @@ public class ContactsChatFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_chat_home,
+		View rootView = inflater.inflate(R.layout.fragment_chat_contacts,
 				container, false);
+
+		// Firing GetChatContactsAPI
+
+		new GetChatContactsAPI(getActivity()).execute();
+
 		return rootView;
 	}
 }

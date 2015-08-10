@@ -21,11 +21,9 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.iop.indiaonphone.ChatHomeActivity;
-import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.utils.ApplicationUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
@@ -221,7 +219,7 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 				// Saving Phone number in the shared preferences
 				SharedPreferences sharedPref = context.getSharedPreferences(
-						ApplicationUtils.SHARED_PREFERENCES_FILE_NAME,
+						ApplicationUtils.SHARED_PREFERENCES_NAME,
 						Context.MODE_PRIVATE);
 
 				SharedPreferences.Editor editor = sharedPref.edit();
@@ -240,16 +238,16 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 				e.printStackTrace();
 			}
 
-			// Clearing the edittexts
-
-			EditText editTextFullName = (EditText) ((Activity) context)
-					.findViewById(R.id.edFullName);
-
-			editTextFullName.setText("");
-			EditText editTextPhone = (EditText) ((Activity) context)
-					.findViewById(R.id.edPhone);
-
-			editTextPhone.setText("");
+			// // Clearing the edittexts
+			//
+			// EditText editTextFullName = (EditText) ((Activity) context)
+			// .findViewById(R.id.edFullName);
+			//
+			// editTextFullName.setText("");
+			// EditText editTextPhone = (EditText) ((Activity) context)
+			// .findViewById(R.id.edPhone);
+			//
+			// editTextPhone.setText("");
 
 		} else {
 
