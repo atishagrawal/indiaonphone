@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App Colors -->
+
+    <item name="primary_orange" type="color">#EB8932</item>
+    <item name="primary_orange_dark" type="color">#FB8C00</item>
+    <item name="primary_orange_light" type="color">#FFCCBC</item>
+    <item name="accent" type="color">#4CAF50</item>
+    <item name="primary_text" type="color">#212121</item>
+    <item name="secondary_text" type="color">#727272</item>
+    <item name="icons" type="color">#FFFFFF</item>
+    <item name="divider" type="color">#B6B6B6</item>
+
+</resources>
