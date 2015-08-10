@@ -16,5 +16,7 @@
     <string name="title_section1">Contacts</string>
     <string name="title_section2">Group</string>
     <string name="title_section3">Community</string>
+    <string name="action_go_to_website">Website</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
 
 </resources>

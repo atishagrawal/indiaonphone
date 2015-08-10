@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -85,6 +86,10 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+
+			startActivity(new Intent(ChatHomeActivity.this,
+					WebViewActivity.class));
+
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

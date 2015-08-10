@@ -26,6 +26,8 @@ public class ApplicationUtils {
 	 * India On Phone
 	 */
 
+	public static final String MAIN_WEBSITE = "http://www.indiaonphone.com/";
+
 	public static final String CONTACT_DETAIL_API = "http://indiaonphone.com/webservice/contact_detail_test.php";
 	public static final String GET_CHAT_CONTACTS_API = "http://indiaonphone.com/webservice/chat_api.php";
 
