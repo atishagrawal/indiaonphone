@@ -76,7 +76,7 @@ public class ApplicationUtils {
 	 * 
 	 * Shared Preferences Names
 	 */
-
+	public static final String SHARED_PREFERENCES_FILE_NAME = "iop";
 	public static final String PREFERENCES_TOKEN = "token";
 
 	public static boolean anythingChanged = false;

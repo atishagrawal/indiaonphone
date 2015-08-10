@@ -60,19 +60,23 @@ public final class R {
         public static final int ic_white_arrow_right=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0006;
-        public static final int btnSignUp=0x7f0a0004;
-        public static final int edFullName=0x7f0a0002;
-        public static final int edPhone=0x7f0a0003;
-        public static final int imgIndiaOnPhoneLogo=0x7f0a0001;
-        public static final int linearLayoutMainActivity=0x7f0a0000;
-        public static final int txtShareMessage=0x7f0a0005;
+        public static final int action_settings=0x7f0a0007;
+        public static final int btnSignUp=0x7f0a0005;
+        public static final int edFullName=0x7f0a0003;
+        public static final int edPhone=0x7f0a0004;
+        public static final int imgIndiaOnPhoneLogo=0x7f0a0002;
+        public static final int linearLayoutMainActivity=0x7f0a0001;
+        public static final int pager=0x7f0a0000;
+        public static final int txtShareMessage=0x7f0a0006;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_chat_home=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int fragment_chat_home=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f090000;
+        public static final int chat_home=0x7f090000;
+        public static final int main=0x7f090001;
     }
     public static final class string {
         public static final int action_settings=0x7f070002;
@@ -86,6 +90,10 @@ public final class R {
          */
         public static final int india_on_phone_logo_heading=0x7f070003;
         public static final int share_message=0x7f070008;
+        public static final int title_activity_chat_home=0x7f070009;
+        public static final int title_section1=0x7f07000a;
+        public static final int title_section2=0x7f07000b;
+        public static final int title_section3=0x7f07000c;
     }
     public static final class style {
         /** 

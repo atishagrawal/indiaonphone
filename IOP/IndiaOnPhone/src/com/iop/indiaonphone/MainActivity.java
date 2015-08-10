@@ -1,6 +1,9 @@
 package com.iop.indiaonphone;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -13,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.iop.indiaonphone.AsyncTasks.MobileAppRegisterAsyncTask;
+import com.iop.indiaonphone.utils.ApplicationUtils;
+import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
 
 /**
@@ -29,6 +34,26 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		SharedPreferences sharedPref = getSharedPreferences(
+				ApplicationUtils.SHARED_PREFERENCES_FILE_NAME,
+				Context.MODE_PRIVATE);
+
+		String mobile = sharedPref.getString(JSONUtils.MOBILE, null);
+		if (TextUtils.isEmpty(mobile)) {
+			// No Mobile number present in the shared preferences. It means user
+			// has not been registered yet. Shared preferences must have a value
+			// once a user submits his phone number and name to the webserver
+		} else {
+			// /Shared Preferences already has the phone number. It means, user
+			// has already been registered on the webserver. Directly put him to
+			// chat screen.
+
+			startActivity(new Intent(MainActivity.this, ChatHomeActivity.class));
+			finish();
+
+		}
+
 	}
 
 	@Override

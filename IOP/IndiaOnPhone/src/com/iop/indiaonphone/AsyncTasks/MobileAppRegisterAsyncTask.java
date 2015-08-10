@@ -9,11 +9,14 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
@@ -21,6 +24,7 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.iop.indiaonphone.ChatHomeActivity;
 import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.utils.ApplicationUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
@@ -42,6 +46,7 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 	private ArrayList<String> phones = new ArrayList<String>();
 	private ProgressDialog progressDialog = null;
 	private String fullName, phoneNumber;
+	private String response = "";
 
 	public MobileAppRegisterAsyncTask(Context callingContext, String fullname,
 			String phoneNumber) {
@@ -82,7 +87,6 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 			// Connected to internet
 
-			String response = "";
 			try {
 				DefaultHttpClient client = new DefaultHttpClient();
 				HttpPost httpPost = new HttpPost(
@@ -205,7 +209,36 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 			// Server returned true
 
-			Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+			JSONObject jsonObjectResponse;
+			try {
+				jsonObjectResponse = new JSONObject(response);
+
+				// Server returned 1 as True
+
+				Toast.makeText(context,
+						jsonObjectResponse.getString(JSONUtils.MESSAGE),
+						Toast.LENGTH_SHORT).show();
+
+				// Saving Phone number in the shared preferences
+				SharedPreferences sharedPref = context.getSharedPreferences(
+						ApplicationUtils.SHARED_PREFERENCES_FILE_NAME,
+						Context.MODE_PRIVATE);
+
+				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString(JSONUtils.MOBILE,
+						jsonObjectResponse.getString(JSONUtils.MOBILE));
+				editor.commit();
+
+				// Starting the chat home activity
+
+				context.startActivity(new Intent(context,
+						ChatHomeActivity.class));
+				((Activity) context).finish();
+
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
 			// Clearing the edittexts
 
