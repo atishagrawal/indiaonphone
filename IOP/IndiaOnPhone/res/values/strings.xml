@@ -12,11 +12,22 @@
     <string name="activity_main_sign_up_button_text">Sign Up</string>
     <string name="activity_main_yes_button_text">YES</string>
     <string name="share_message">Share your contacts with India On Phone to connect and communicate with people, groups and communities.\nThanks!</string>
+
+    <!-- Chat Home Activity -->
+
     <string name="title_activity_chat_home">ChatHomeActivity</string>
     <string name="title_section1">Contacts</string>
     <string name="title_section2">Group</string>
     <string name="title_section3">Community</string>
     <string name="action_go_to_website">Website</string>
+
+    <!-- WebView Activity -->
+
     <string name="title_activity_web_view">WebViewActivity</string>
+
+    <!-- Chat Contacts Activity -->
+    <string name="btn_send">Send</string>
+    <string name="title_activity_chat_contacts">ChatContactsActivity</string>
+    <string name="action_attachments">Attachments</string>
 
 </resources>

@@ -4,14 +4,20 @@
 package com.iop.indiaonphone.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.iop.indiaonphone.ChatContactsActivity;
 import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.AsyncTasks.GetChatContactsAPI;
+import com.iop.indiaonphone.utils.JSONUtils;
 
 /**
  * @author Atish Agrawal
@@ -45,10 +51,37 @@ public class ContactsChatFragment extends Fragment {
 
 		// Firing GetChatContactsAPI
 
-		ListView listViewChatContacts=(ListView)rootView.findViewById(R.id.listChatContacts);
-		
+		ListView listViewChatContacts = (ListView) rootView
+				.findViewById(R.id.listChatContacts);
+
+		listViewChatContacts
+				.setOnItemClickListener(chatWithContactListViewItemClickListener);
+
 		new GetChatContactsAPI(getActivity(), listViewChatContacts).execute();
 
 		return rootView;
 	}
+
+	private OnItemClickListener chatWithContactListViewItemClickListener = new OnItemClickListener() {
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+
+			TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+			TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+			String name = text1.getText().toString();
+			String mobile = text2.getText().toString();
+
+			Intent intent = new Intent(getActivity(),
+					ChatContactsActivity.class);
+
+			intent.putExtra(JSONUtils.CONTACT_NAME, name);
+			intent.putExtra(JSONUtils.CONTACT_MOBILE, mobile);
+
+			startActivity(intent);
+
+		}
+	};
 }
