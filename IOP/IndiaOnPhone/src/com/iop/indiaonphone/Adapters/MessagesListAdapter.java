@@ -1,13 +1,17 @@
 package com.iop.indiaonphone.Adapters;
 
+import java.io.File;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iop.indiaonphone.R;
@@ -68,6 +72,25 @@ public class MessagesListAdapter extends BaseAdapter {
 
 		txtMsg.setText(m.getMessage());
 		lblFrom.setText(m.getFromName());
+
+		if (messagesItems.get(position).isImage()) {
+			// User Added Image
+
+			File imgFile = new File(messagesItems.get(position).getImagePath());
+
+			if (imgFile.exists()) {
+
+				Bitmap myBitmap = BitmapFactory.decodeFile(imgFile
+						.getAbsolutePath());
+				ImageView imageView = (ImageView) convertView
+						.findViewById(R.id.imgChatMessage);
+				imageView.setVisibility(View.VISIBLE);
+
+				imageView.setImageBitmap(myBitmap);
+
+			}
+
+		}
 
 		return convertView;
 	}

@@ -31,7 +31,7 @@
         android:textSize="16dp" />
 
     <ImageView
-        android:id="@+id/imgChatMessageRight"
+        android:id="@+id/imgChatMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />

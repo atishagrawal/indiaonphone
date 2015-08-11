@@ -1,16 +1,19 @@
 package com.iop.indiaonphone.chatUtils;
 
 public class Message {
-	private String fromName, message;
-	private boolean isSelf;
+	private String fromName, message, imagePath;
+	private boolean isSelf, isImage;
 
 	public Message() {
 	}
 
-	public Message(String fromName, String message, boolean isSelf) {
+	public Message(String fromName, String message, String imagePath,
+			boolean isSelf, boolean isImage) {
 		this.fromName = fromName;
 		this.message = message;
 		this.isSelf = isSelf;
+		this.imagePath = imagePath;
+		this.isImage = isImage;
 	}
 
 	public String getFromName() {
@@ -19,6 +22,14 @@ public class Message {
 
 	public void setFromName(String fromName) {
 		this.fromName = fromName;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public String getMessage() {
@@ -35,6 +46,14 @@ public class Message {
 
 	public void setSelf(boolean isSelf) {
 		this.isSelf = isSelf;
+	}
+
+	public boolean isImage() {
+		return isImage;
+	}
+
+	public void setImage(boolean isImage) {
+		this.isImage = isImage;
 	}
 
 }

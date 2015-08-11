@@ -28,7 +28,6 @@ import com.iop.indiaonphone.Adapters.MessagesListAdapter;
 import com.iop.indiaonphone.chatUtils.Message;
 import com.iop.indiaonphone.chatUtils.Utils;
 import com.iop.indiaonphone.utils.JSONUtils;
-import com.iop.indiaonphone.utils.ProjectUtils;
 
 /**
  * 
@@ -90,8 +89,12 @@ public class ChatContactsActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// Sending message to web socket server
-				sendMessageToServer(utils.getSendMessageJSON(inputMsg.getText()
-						.toString()));
+				Message m = new Message(name, inputMsg.getText().toString(),
+						null, true, false);
+				appendMessage(m);
+
+				// sendMessageToServer(utils.getSendMessageJSON(inputMsg.getText()
+				// .toString()));
 
 				// Clearing the input filed once message was sent
 				inputMsg.setText("");
@@ -221,7 +224,7 @@ public class ChatContactsActivity extends Activity {
 					isSelf = false;
 				}
 
-				Message m = new Message(fromName, message, isSelf);
+				Message m = new Message(fromName, message, null, isSelf, false);
 
 				// Appending the message to chat list
 				appendMessage(m);
@@ -359,10 +362,13 @@ public class ChatContactsActivity extends Activity {
 			String picturePath = cursor.getString(columnIndex);
 			cursor.close();
 
-			String encodedImage = ProjectUtils
-					.encodeImageToBase64FromImagePath(picturePath);
+			// String encodedImage = ProjectUtils
+			// .encodeImageToBase64FromImagePath(picturePath);
 
-			Log.d(TAG, encodedImage);
+			// Log.d(TAG, encodedImage);
+
+			Message m = new Message(name, null, picturePath, true, true);
+			appendMessage(m);
 
 			// ImageView imageView = (ImageView) findViewById(android.R.id.);
 			// imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
