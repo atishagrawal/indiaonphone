@@ -103,9 +103,11 @@ public final class R {
         public static final int activity_chat_home=0x7f030001;
         public static final int activity_main=0x7f030002;
         public static final int activity_web_view=0x7f030003;
-        public static final int fragment_chat_contacts=0x7f030004;
-        public static final int list_item_message_left=0x7f030005;
-        public static final int list_item_message_right=0x7f030006;
+        public static final int fragment_chat_community=0x7f030004;
+        public static final int fragment_chat_contacts=0x7f030005;
+        public static final int fragment_chat_group=0x7f030006;
+        public static final int list_item_message_left=0x7f030007;
+        public static final int list_item_message_right=0x7f030008;
     }
     public static final class menu {
         public static final int chat_contacts=0x7f090000;

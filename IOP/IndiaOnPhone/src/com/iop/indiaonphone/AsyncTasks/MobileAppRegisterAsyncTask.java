@@ -92,9 +92,6 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 				httpPost.setHeader("Accept", "application/json");
 				httpPost.setHeader("Content-type", "application/json");
 
-				/**
-				 * Correct code
-				 */
 				StringEntity entity = new StringEntity(jsonString);
 
 				httpPost.setEntity(entity);
@@ -169,21 +166,24 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 			object.put("user_data", user_data);
 
-			/**
-			 * Incorrect code
-			 * 
-			 */
-
-			object.put("user_data", user_data);
-
 			if (names != null && names.size() != 0) {
 
 				// Putting all the names and phone numbers in an array
 
 				// Getting only one number
 
-				// for (int i = 0; i < names.size(); i++) {
-				for (int i = 0; i < 1; i++) {
+				for (int i = 0; i < names.size(); i++) {
+
+					/**
+					 * Incorrect code starts
+					 * 
+					 */
+					// for (int i = 0; i < 1; i++) {
+
+					/**
+					 * Incorrect code ends
+					 */
+
 					JSONObject jsonObject = new JSONObject();
 					jsonObject.put("name", names.get(i));
 					jsonObject.put("phone", phones.get(i));
