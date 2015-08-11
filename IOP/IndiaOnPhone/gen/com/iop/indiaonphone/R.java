@@ -80,12 +80,14 @@ public final class R {
         public static final int tile_bg=0x7f020007;
     }
     public static final class id {
-        public static final int action_attachments=0x7f0a000f;
-        public static final int action_settings=0x7f0a0010;
+        public static final int action_attachments=0x7f0a0011;
+        public static final int action_settings=0x7f0a0012;
         public static final int btnSend=0x7f0a0003;
         public static final int btnSignUp=0x7f0a0009;
         public static final int edFullName=0x7f0a0007;
         public static final int edPhone=0x7f0a0008;
+        public static final int imgChatMessageLeft=0x7f0a000f;
+        public static final int imgChatMessageRight=0x7f0a0010;
         public static final int imgIndiaOnPhoneLogo=0x7f0a0006;
         public static final int inputMsg=0x7f0a0002;
         public static final int lblMsgFrom=0x7f0a000d;

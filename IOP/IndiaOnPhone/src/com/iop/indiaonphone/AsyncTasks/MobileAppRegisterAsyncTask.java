@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -86,18 +88,25 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 			// Connected to internet
 
 			try {
-				DefaultHttpClient client = new DefaultHttpClient();
+
+				/**
+				 * 
+				 * New HTTPost Method
+				 * 
+				 */
+
+				HttpClient httpClient = new DefaultHttpClient();
+
 				HttpPost httpPost = new HttpPost(
 						ApplicationUtils.CONTACT_DETAIL_API);
-				httpPost.setHeader("Accept", "application/json");
+
+				httpPost.setEntity(new StringEntity(jsonString, "UTF8"));
 				httpPost.setHeader("Content-type", "application/json");
+				HttpResponse httpResponse = httpClient.execute(httpPost);
 
-				StringEntity entity = new StringEntity(jsonString);
-
-				httpPost.setEntity(entity);
-				HttpResponse httpResponse = client.execute(httpPost);
 				int statusCode = httpResponse.getStatusLine().getStatusCode();
-				if (statusCode == 200) {
+
+				if (statusCode == HttpStatus.SC_OK) {
 					HttpEntity httpEntity = httpResponse.getEntity();
 					response = EntityUtils.toString(httpEntity);
 
@@ -107,18 +116,25 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 					JSONObject jsonObjectResponse = new JSONObject(response);
 
-					if (jsonObjectResponse.getInt(JSONUtils.STATUS) == 1) {
-						// Server returned 1 as True
-
-						return true;
-
-					} else {
-						// Server returned 0 as false along with message
+					switch (jsonObjectResponse.getInt(JSONUtils.STATUS)) {
+					case 0:
+						// Some error occurred
 
 						return false;
 
-					}
+					case 1:
 
+						// Success
+
+						return true;
+
+					case 2:
+
+						// User Already Registered
+
+						return true;
+
+					}
 				}
 
 			} catch (Exception e) {
@@ -215,19 +231,22 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
 			// User not connected to internet
 
+			Toast.makeText(context, "No Internet connection",
+					Toast.LENGTH_SHORT).show();
+
 			return;
 
 		}
 
-		if (result) {
+		JSONObject jsonObjectResponse;
+		try {
+			jsonObjectResponse = new JSONObject(response);
 
-			// Server returned true
+			if (result) {
 
-			JSONObject jsonObjectResponse;
-			try {
-				jsonObjectResponse = new JSONObject(response);
+				// Server returned true
 
-				// Server returned 1 as True
+				// Server returned 1/2 as True
 
 				Toast.makeText(context,
 						jsonObjectResponse.getString(JSONUtils.MESSAGE),
@@ -249,26 +268,29 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 						ChatHomeActivity.class));
 				((Activity) context).finish();
 
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// // Clearing the edittexts
+				//
+				// EditText editTextFullName = (EditText) ((Activity) context)
+				// .findViewById(R.id.edFullName);
+				//
+				// editTextFullName.setText("");
+				// EditText editTextPhone = (EditText) ((Activity) context)
+				// .findViewById(R.id.edPhone);
+				//
+				// editTextPhone.setText("");
+
+			} else {
+
+				// Some error occurred
+
+				Toast.makeText(context,
+						jsonObjectResponse.getString(JSONUtils.MESSAGE),
+						Toast.LENGTH_LONG).show();
+
 			}
-
-			// // Clearing the edittexts
-			//
-			// EditText editTextFullName = (EditText) ((Activity) context)
-			// .findViewById(R.id.edFullName);
-			//
-			// editTextFullName.setText("");
-			// EditText editTextPhone = (EditText) ((Activity) context)
-			// .findViewById(R.id.edPhone);
-			//
-			// editTextPhone.setText("");
-
-		} else {
-
-			// Record not found
-
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 	}

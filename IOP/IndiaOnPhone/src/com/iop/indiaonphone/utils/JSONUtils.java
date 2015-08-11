@@ -15,6 +15,8 @@ public class JSONUtils {
 	public static final String API_KEY = "api_key";
 	public static final String ACCESS_TOKEN = "access_token";
 
+	public static final String JSON = "json";
+
 	public static final String STATUS = "status";
 	public static final String MESSAGE = "message";
 	public static final String MOBILE = "mobile";

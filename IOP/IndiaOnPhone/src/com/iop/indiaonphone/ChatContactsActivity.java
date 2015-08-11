@@ -1,10 +1,7 @@
 package com.iop.indiaonphone;
 
-import java.net.URI;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,10 +23,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.codebutler.android_websockets.WebSocketClient;
 import com.iop.indiaonphone.Adapters.MessagesListAdapter;
 import com.iop.indiaonphone.chatUtils.Message;
 import com.iop.indiaonphone.chatUtils.Utils;
-import com.iop.indiaonphone.chatUtils.WsConfig;
 import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
 
@@ -79,6 +76,7 @@ public class ChatContactsActivity extends Activity {
 		setTitle(name);
 
 		Log.d(TAG, "Name:" + name + "\nMobile:" + mobile);
+
 		btnSend = (Button) findViewById(R.id.btnSend);
 		inputMsg = (EditText) findViewById(R.id.inputMsg);
 		listViewMessages = (ListView) findViewById(R.id.list_view_messages);
@@ -86,8 +84,6 @@ public class ChatContactsActivity extends Activity {
 		utils = new Utils(getApplicationContext());
 
 		// Getting the person name from previous screen
-		Intent i = getIntent();
-		name = i.getStringExtra("name");
 
 		btnSend.setOnClickListener(new View.OnClickListener() {
 
@@ -107,61 +103,64 @@ public class ChatContactsActivity extends Activity {
 		adapter = new MessagesListAdapter(this, listMessages);
 		listViewMessages.setAdapter(adapter);
 
-		/**
-		 * Creating web socket client. This will have callback methods
-		 * */
-		client = new WebSocketClient(URI.create(WsConfig.URL_WEBSOCKET
-				+ URLEncoder.encode(name)), new WebSocketClient.Listener() {
-			@Override
-			public void onConnect() {
-
-			}
-
-			/**
-			 * On receiving the message from web socket server
-			 * */
-			@Override
-			public void onMessage(String message) {
-				Log.d(TAG, String.format("Got string message! %s", message));
-
-				parseMessage(message);
-
-			}
-
-			@Override
-			public void onMessage(byte[] data) {
-				Log.d(TAG, String.format("Got binary message! %s",
-						bytesToHex(data)));
-
-				// Message will be in JSON format
-				parseMessage(bytesToHex(data));
-			}
-
-			/**
-			 * Called when the connection is terminated
-			 * */
-			@Override
-			public void onDisconnect(int code, String reason) {
-
-				String message = String.format(Locale.US,
-						"Disconnected! Code: %d Reason: %s", code, reason);
-
-				showToast(message);
-
-				// clear the session id from shared preferences
-				utils.storeSessionId(null);
-			}
-
-			@Override
-			public void onError(Exception error) {
-				Log.e(TAG, "Error! : " + error);
-
-				showToast("Error! : " + error);
-			}
-
-		}, null);
-
-		client.connect();
+		// /**
+		// * Creating web socket client. This will have callback methods
+		// * */
+		// client = new WebSocketClient(URI.create(WsConfig.URL_WEBSOCKET
+		// + URLEncoder.encode(clientName)),
+		// new WebSocketClient.Listener() {
+		// @Override
+		// public void onConnect() {
+		//
+		// }
+		//
+		// /**
+		// * On receiving the message from web socket server
+		// * */
+		// @Override
+		// public void onMessage(String message) {
+		// Log.d(TAG, String.format("Got string message! %s",
+		// message));
+		//
+		// parseMessage(message);
+		//
+		// }
+		//
+		// @Override
+		// public void onMessage(byte[] data) {
+		// Log.d(TAG, String.format("Got binary message! %s",
+		// bytesToHex(data)));
+		//
+		// // Message will be in JSON format
+		// parseMessage(bytesToHex(data));
+		// }
+		//
+		// /**
+		// * Called when the connection is terminated
+		// * */
+		// @Override
+		// public void onDisconnect(int code, String reason) {
+		//
+		// String message = String.format(Locale.US,
+		// "Disconnected! Code: %d Reason: %s", code,
+		// reason);
+		//
+		// showToast(message);
+		//
+		// // clear the session id from shared preferences
+		// utils.storeSessionId(null);
+		// }
+		//
+		// @Override
+		// public void onError(Exception error) {
+		// Log.e(TAG, "Error! : " + error);
+		//
+		// showToast("Error! : " + error);
+		// }
+		//
+		// }, null);
+		//
+		// client.connect();
 	}
 
 	/**
@@ -241,14 +240,14 @@ public class ChatContactsActivity extends Activity {
 
 	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-
-		if (client != null & client.isConnected()) {
-			client.disconnect();
-		}
-	}
+	// @Override
+	// protected void onDestroy() {
+	// super.onDestroy();
+	//
+	// if (client != null & client.isConnected()) {
+	// client.disconnect();
+	// }
+	// }
 
 	/**
 	 * Appending message to list view
