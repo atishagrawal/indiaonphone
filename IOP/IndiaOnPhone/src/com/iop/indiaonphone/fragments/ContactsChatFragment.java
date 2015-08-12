@@ -68,8 +68,10 @@ public class ContactsChatFragment extends Fragment {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
 
-			TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-			TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+			TextView text1 = (TextView) view
+					.findViewById(R.id.txtInnerListContactName);
+			TextView text2 = (TextView) view
+					.findViewById(R.id.txtInnerListContactName);
 
 			String name = text1.getText().toString();
 			String mobile = text2.getText().toString();

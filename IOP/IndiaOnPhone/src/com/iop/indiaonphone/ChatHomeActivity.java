@@ -14,7 +14,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.iop.indiaonphone.fragments.CommunityChatFragment;
 import com.iop.indiaonphone.fragments.ContactsChatFragment;
+import com.iop.indiaonphone.fragments.GroupChatFragment;
 
 public class ChatHomeActivity extends Activity implements ActionBar.TabListener {
 
@@ -135,18 +137,17 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 				return ContactsChatFragment.newInstance(position + 1);
 			case 1:
 
-				break;
+				return GroupChatFragment.newInstance(position + 1);
+
 			case 2:
 
-				break;
+				return CommunityChatFragment.newInstance(position + 1);
 
 			default:
-				break;
+
+				return ContactsChatFragment.newInstance(position + 1);
 			}
 
-			new ContactsChatFragment();
-
-			return ContactsChatFragment.newInstance(position + 1);
 		}
 
 		@Override

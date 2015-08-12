@@ -18,14 +18,19 @@ import org.json.JSONObject;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.utils.ApplicationUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
@@ -155,7 +160,7 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 
 			// Server returned true
 
-			// Adding Users in the listview
+			// Adding Users in the ListView
 
 			try {
 				JSONObject jsonObjectResponse = new JSONObject(response);
@@ -165,6 +170,7 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 
 				final ArrayList<String> contacts_name = new ArrayList<String>();
 				final ArrayList<String> contacts_mobile = new ArrayList<String>();
+				final ArrayList<String> contacts_image = new ArrayList<String>();
 
 				for (int i = 0; i < jsonArrayContacts.length(); i++) {
 
@@ -175,24 +181,48 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 							.getString(JSONUtils.CONTACT_NAME));
 					contacts_mobile.add(innerJsonObject
 							.getString(JSONUtils.CONTACT_MOBILE));
+					contacts_image.add(innerJsonObject.optString(
+							JSONUtils.CONTACT_IMAGE, null));
 
 				}
 
 				ArrayAdapter adapter = new ArrayAdapter(context,
-						android.R.layout.simple_list_item_2,
-						android.R.id.text1, contacts_name) {
+						R.layout.inner_contacts_list, android.R.id.text1,
+						contacts_name) {
 					@Override
 					public View getView(int position, View convertView,
 							ViewGroup parent) {
-						View view = super
-								.getView(position, convertView, parent);
+
+						LayoutInflater inflater = (LayoutInflater) context
+								.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+						View view = inflater.inflate(
+								R.layout.inner_contacts_list, null);
+
+						// View view = getView(position, convertView, parent);
 						TextView text1 = (TextView) view
-								.findViewById(android.R.id.text1);
+								.findViewById(R.id.txtInnerListContactName);
 						TextView text2 = (TextView) view
-								.findViewById(android.R.id.text2);
+								.findViewById(R.id.txtInnerListContactPhone);
 
 						text1.setText(contacts_name.get(position));
 						text2.setText(contacts_mobile.get(position));
+
+						// Setting image is available
+
+						ImageView imageViewContactImage = (ImageView) view
+								.findViewById(R.id.imgInnerListContactImage);
+
+						byte[] decodedString = ProjectUtils
+								.decodeImage(contacts_image.get(position));
+
+						if (decodedString.length > 0) {
+
+							Bitmap decodedByte = BitmapFactory.decodeByteArray(
+									decodedString, 0, decodedString.length);
+							imageViewContactImage.setImageBitmap(decodedByte);
+
+						}
+
 						return view;
 					}
 				};
@@ -200,7 +230,7 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 				listViewChatContacts.setAdapter(adapter);
 
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
+				// Printing errors
 				e.printStackTrace();
 			}
 

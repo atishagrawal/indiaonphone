@@ -96,4 +96,30 @@ public class ProjectUtils {
 		}
 	}
 
+	/**
+	 * 
+	 * @param bitmap
+	 *            The bitmap to be converted
+	 * @return
+	 */
+
+	public static String encodeImageToBase64FromBitmap(Bitmap bitmap) {
+
+		if (bitmap != null) {
+			// No filepath provided. Returning null
+
+			// Returning converted image from the path provided
+
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos); // bm is the
+			// bitmap
+			// object
+			byte[] byteArrayImage = baos.toByteArray();
+
+			return Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+
+		}
+		return null;
+	}
+
 }
