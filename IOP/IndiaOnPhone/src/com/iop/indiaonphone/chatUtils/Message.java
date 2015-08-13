@@ -1,18 +1,18 @@
 package com.iop.indiaonphone.chatUtils;
 
 public class Message {
-	private String fromName, message, imagePath;
+	private String fromName, message, image;
 	private boolean isSelf, isImage;
 
 	public Message() {
 	}
 
-	public Message(String fromName, String message, String imagePath,
+	public Message(String fromName, String message, String image,
 			boolean isSelf, boolean isImage) {
 		this.fromName = fromName;
 		this.message = message;
 		this.isSelf = isSelf;
-		this.imagePath = imagePath;
+		this.image = image;
 		this.isImage = isImage;
 	}
 
@@ -24,12 +24,12 @@ public class Message {
 		this.fromName = fromName;
 	}
 
-	public String getImagePath() {
-		return imagePath;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public String getMessage() {

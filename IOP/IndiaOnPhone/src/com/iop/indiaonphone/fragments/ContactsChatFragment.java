@@ -71,7 +71,7 @@ public class ContactsChatFragment extends Fragment {
 			TextView text1 = (TextView) view
 					.findViewById(R.id.txtInnerListContactName);
 			TextView text2 = (TextView) view
-					.findViewById(R.id.txtInnerListContactName);
+					.findViewById(R.id.txtInnerListContactPhone);
 
 			String name = text1.getText().toString();
 			String mobile = text2.getText().toString();

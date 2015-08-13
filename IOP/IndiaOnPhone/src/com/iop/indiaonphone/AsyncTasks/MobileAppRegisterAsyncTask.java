@@ -282,6 +282,8 @@ public class MobileAppRegisterAsyncTask extends AsyncTask<Void, Void, Boolean> {
 				SharedPreferences.Editor editor = sharedPref.edit();
 				editor.putString(JSONUtils.MOBILE,
 						jsonObjectResponse.getString(JSONUtils.MOBILE));
+				editor.putString(JSONUtils.NAME,
+						jsonObjectResponse.getString(JSONUtils.NAME));
 				editor.commit();
 
 				// Starting the chat home activity

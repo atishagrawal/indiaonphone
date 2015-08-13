@@ -1,5 +1,6 @@
 package com.iop.indiaonphone;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,13 +26,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.codebutler.android_websockets.WebSocketClient;
 import com.iop.indiaonphone.Adapters.MessagesListAdapter;
+import com.iop.indiaonphone.AsyncTasks.GetChatMessageAPI;
+import com.iop.indiaonphone.AsyncTasks.SendChatMessageAPI;
 import com.iop.indiaonphone.chatUtils.Message;
-import com.iop.indiaonphone.chatUtils.Utils;
+import com.iop.indiaonphone.interfaces.OnReceivingChatMessages;
+import com.iop.indiaonphone.utils.ApplicationUtils;
+import com.iop.indiaonphone.utils.DateTimeUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
+import com.iop.indiaonphone.utils.ProjectUtils;
 
 /**
  * 
@@ -35,31 +43,27 @@ import com.iop.indiaonphone.utils.JSONUtils;
  * 
  */
 
-public class ChatContactsActivity extends Activity {
+public class ChatContactsActivity extends Activity implements
+		OnReceivingChatMessages {
 
 	private static final String TAG = ChatContactsActivity.class
 			.getSimpleName();
 
+	private Handler mHandler = new Handler();
+
 	private Button btnSend;
 	private EditText inputMsg;
-
-	private WebSocketClient client;
 
 	// Chat messages list adapter
 	private MessagesListAdapter adapter;
 	private List<Message> listMessages;
 	private ListView listViewMessages;
 
-	private Utils utils;
+	private static String c_to, c_from, c_msg, c_image, c_timestamp;
 
-	// Client name
-	private String clientName = null;
+	private static String fromName, toName;
 
-	// JSON flags to identify the kind of JSON response
-	private static final String TAG_SELF = "self", TAG_NEW = "new",
-			TAG_MESSAGE = "message", TAG_EXIT = "exit";
-
-	private String name, mobile;
+	private boolean hasImage = false;
 	private static int RESULT_LOAD_IMAGE = 1;
 
 	@Override
@@ -69,18 +73,38 @@ public class ChatContactsActivity extends Activity {
 
 		Intent intent = getIntent();
 
-		name = intent.getStringExtra(JSONUtils.CONTACT_NAME);
-		mobile = intent.getStringExtra(JSONUtils.CONTACT_MOBILE);
+		toName = intent.getStringExtra(JSONUtils.CONTACT_NAME);
+		c_to = intent.getStringExtra(JSONUtils.CONTACT_MOBILE);
 
-		setTitle(name);
+		SharedPreferences sharedPref = getSharedPreferences(
+				ApplicationUtils.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
 
-		Log.d(TAG, "Name:" + name + "\nMobile:" + mobile);
+		c_from = sharedPref.getString(JSONUtils.MOBILE, null);
+		fromName = sharedPref.getString(JSONUtils.NAME, null);
+
+		setTitle(toName);
+
+		Log.d(TAG, "Name:" + toName + "\nMobile:" + c_to);
+
+		// Saving values in chatSharedPreference
+
+		SharedPreferences sharedPref2 = getSharedPreferences(
+				ApplicationUtils.CHAT_SHARED_PREFERENCES_NAME,
+				Context.MODE_PRIVATE);
+
+		SharedPreferences.Editor editor = sharedPref2.edit();
+		editor.putString(JSONUtils.CHAT_FROM_NAME, fromName);
+		editor.putString(JSONUtils.CHAT_FROM_PHONE, c_from);
+
+		editor.putString(JSONUtils.CHAT_TO_NAME, toName);
+		editor.putString(JSONUtils.CHAT_TO_PHONE, c_to);
+		editor.commit();
 
 		btnSend = (Button) findViewById(R.id.btnSend);
 		inputMsg = (EditText) findViewById(R.id.inputMsg);
 		listViewMessages = (ListView) findViewById(R.id.list_view_messages);
 
-		utils = new Utils(getApplicationContext());
+		// Adding values in the shared preferences
 
 		// Getting the person name from previous screen
 
@@ -88,17 +112,18 @@ public class ChatContactsActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// Sending message to web socket server
-				Message m = new Message(name, inputMsg.getText().toString(),
-						null, true, false);
-				appendMessage(m);
+				// Sending message to web server
 
-				// sendMessageToServer(utils.getSendMessageJSON(inputMsg.getText()
-				// .toString()));
+				c_msg = inputMsg.getText().toString();
+
+				Message m = new Message(fromName, c_msg, null, true, false);
+				appendMessage(m);
 
 				// Clearing the input filed once message was sent
 				inputMsg.setText("");
+
 			}
+
 		});
 
 		listMessages = new ArrayList<Message>();
@@ -106,151 +131,94 @@ public class ChatContactsActivity extends Activity {
 		adapter = new MessagesListAdapter(this, listMessages);
 		listViewMessages.setAdapter(adapter);
 
-		// /**
-		// * Creating web socket client. This will have callback methods
-		// * */
-		// client = new WebSocketClient(URI.create(WsConfig.URL_WEBSOCKET
-		// + URLEncoder.encode(clientName)),
-		// new WebSocketClient.Listener() {
-		// @Override
-		// public void onConnect() {
-		//
-		// }
-		//
-		// /**
-		// * On receiving the message from web socket server
-		// * */
-		// @Override
-		// public void onMessage(String message) {
-		// Log.d(TAG, String.format("Got string message! %s",
-		// message));
-		//
-		// parseMessage(message);
-		//
-		// }
-		//
-		// @Override
-		// public void onMessage(byte[] data) {
-		// Log.d(TAG, String.format("Got binary message! %s",
-		// bytesToHex(data)));
-		//
-		// // Message will be in JSON format
-		// parseMessage(bytesToHex(data));
-		// }
-		//
-		// /**
-		// * Called when the connection is terminated
-		// * */
-		// @Override
-		// public void onDisconnect(int code, String reason) {
-		//
-		// String message = String.format(Locale.US,
-		// "Disconnected! Code: %d Reason: %s", code,
-		// reason);
-		//
-		// showToast(message);
-		//
-		// // clear the session id from shared preferences
-		// utils.storeSessionId(null);
-		// }
-		//
-		// @Override
-		// public void onError(Exception error) {
-		// Log.e(TAG, "Error! : " + error);
-		//
-		// showToast("Error! : " + error);
-		// }
-		//
-		// }, null);
-		//
-		// client.connect();
+		getAllMessages();
+
 	}
 
-	/**
-	 * Method to send message to web socket server
-	 * */
-	private void sendMessageToServer(String message) {
-		if (client != null && client.isConnected()) {
-			client.send(message);
-		}
-	}
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart() {
+		// Starting handler
+		super.onStart();
 
-	/**
-	 * Parsing the JSON message received from server The intent of message will
-	 * be identified by JSON node 'flag'. flag = self, message belongs to the
-	 * person. flag = new, a new person joined the conversation. flag = message,
-	 * a new message received from server. flag = exit, somebody left the
-	 * conversation.
-	 * */
-	private void parseMessage(final String msg) {
+		// starting the handler
 
-		try {
-			JSONObject jObj = new JSONObject(msg);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// Waiting the thread for 5 Seconds
+				while (true) {
+					try {
+						Thread.sleep(5000);
+						mHandler.post(new Runnable() {
 
-			// JSON node 'flag'
-			String flag = jObj.getString("flag");
+							@Override
+							public void run() {
+								// Call getChatMessage API
 
-			// if flag is 'self', this JSON contains session id
-			if (flag.equalsIgnoreCase(TAG_SELF)) {
+								new GetChatMessageAPI(
+										ChatContactsActivity.this, c_from,
+										c_to, ChatContactsActivity.this)
+										.execute();
 
-				String sessionId = jObj.getString("sessionId");
-
-				// Save the session id in shared preferences
-				utils.storeSessionId(sessionId);
-
-				Log.e(TAG, "Your session id: " + utils.getSessionId());
-
-			} else if (flag.equalsIgnoreCase(TAG_NEW)) {
-				// If the flag is 'new', new person joined the room
-				String name = jObj.getString("name");
-				String message = jObj.getString("message");
-
-				// number of people online
-				String onlineCount = jObj.getString("onlineCount");
-
-				showToast(name + message + ". Currently " + onlineCount
-						+ " people online!");
-
-			} else if (flag.equalsIgnoreCase(TAG_MESSAGE)) {
-				// if the flag is 'message', new message received
-				String fromName = name;
-				String message = jObj.getString("message");
-				String sessionId = jObj.getString("sessionId");
-				boolean isSelf = true;
-
-				// Checking if the message was sent by you
-				if (!sessionId.equals(utils.getSessionId())) {
-					fromName = jObj.getString("name");
-					isSelf = false;
+							}
+						});
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-
-				Message m = new Message(fromName, message, null, isSelf, false);
-
-				// Appending the message to chat list
-				appendMessage(m);
-
-			} else if (flag.equalsIgnoreCase(TAG_EXIT)) {
-				// If the flag is 'exit', somebody left the conversation
-				String name = jObj.getString("name");
-				String message = jObj.getString("message");
-
-				showToast(name + message);
 			}
+		}).start();
 
+	}
+
+	/**
+	 * 
+	 */
+	protected void sendMessageToServer() {
+		// Sending message to server
+
+		new SendChatMessageAPI(ChatContactsActivity.this, generateMsgJSON())
+				.execute();
+
+	}
+
+	private String generateMsgJSON() {
+		// Creating JSON String to be sent to server
+		try {
+			JSONObject jsonObject = new JSONObject();
+
+			jsonObject.put(JSONUtils.C_FROM, c_from);
+			jsonObject.put(JSONUtils.C_TO, c_to);
+			jsonObject.put(JSONUtils.C_MSG, c_msg);
+			jsonObject.put(JSONUtils.C_IMAGE, c_image);
+			jsonObject.put(JSONUtils.HAS_IMAGE, hasImage);
+			jsonObject.put(JSONUtils.C_TIMESTAMP, DateTimeUtils.getTime());
+
+			hasImage = false;
+			c_image = "";
+
+			return jsonObject.toString();
 		} catch (JSONException e) {
+			// An Exception occurred
 			e.printStackTrace();
 		}
 
+		return null;
 	}
 
-	// @Override
-	// protected void onDestroy() {
-	// super.onDestroy();
-	//
-	// if (client != null & client.isConnected()) {
-	// client.disconnect();
-	// }
-	// }
+	/**
+	 * 
+	 */
+	private void getAllMessages() {
+
+		// Fire get all messages API
+
+	}
 
 	/**
 	 * Appending message to list view
@@ -266,21 +234,13 @@ public class ChatContactsActivity extends Activity {
 
 				// Playing device's notification
 				playBeep();
+
+				// Sending message to server after adding it to the listview
+
+				sendMessageToServer();
+
 			}
 		});
-	}
-
-	private void showToast(final String message) {
-
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				Toast.makeText(getApplicationContext(), message,
-						Toast.LENGTH_LONG).show();
-			}
-		});
-
 	}
 
 	/**
@@ -297,18 +257,6 @@ public class ChatContactsActivity extends Activity {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
-
-	public static String bytesToHex(byte[] bytes) {
-		char[] hexChars = new char[bytes.length * 2];
-		for (int j = 0; j < bytes.length; j++) {
-			int v = bytes[j] & 0xFF;
-			hexChars[j * 2] = hexArray[v >>> 4];
-			hexChars[j * 2 + 1] = hexArray[v & 0x0F];
-		}
-		return new String(hexChars);
 	}
 
 	@Override
@@ -362,18 +310,70 @@ public class ChatContactsActivity extends Activity {
 			String picturePath = cursor.getString(columnIndex);
 			cursor.close();
 
-			// String encodedImage = ProjectUtils
-			// .encodeImageToBase64FromImagePath(picturePath);
+			hasImage = true;
 
-			// Log.d(TAG, encodedImage);
+			if (!TextUtils.isEmpty(picturePath)) {
+				// User Added Image
 
-			Message m = new Message(name, null, picturePath, true, true);
+				File imgFile = new File(picturePath);
+
+				if (imgFile.exists()) {
+
+					c_image = ProjectUtils
+							.encodeImageToBase64FromImagePath(imgFile
+									.getAbsolutePath());
+
+				}
+
+			}
+
+			Message m = new Message(fromName, null, c_image, true, true);
 			appendMessage(m);
-
-			// ImageView imageView = (ImageView) findViewById(android.R.id.);
-			// imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 
 		}
 
 	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onDestroy()
+	 */
+	@Override
+	protected void onDestroy() {
+		// Clearing the handler
+		super.onDestroy();
+		mHandler.removeCallbacksAndMessages(null);
+		mHandler = null;
+
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.iop.indiaonphone.interfaces.OnReceivingChatMessages#onTaskCompleted()
+	 */
+	@Override
+	public void onTaskCompleted(final List<Message> messageList) {
+		// Chat messages received
+
+		runOnUiThread(new Runnable() {
+
+			@Override
+			public void run() {
+				listMessages.addAll(messageList);
+
+				adapter.notifyDataSetChanged();
+
+				// Playing device's notification
+				playBeep();
+
+				// Sending message to server after adding it to the listview
+
+			}
+		});
+
+	}
+
 }

@@ -19,8 +19,9 @@ public class JSONUtils {
 
 	public static final String STATUS = "status";
 	public static final String MESSAGE = "message";
-	public static final String NAME = "contact_images";
+
 	public static final String MOBILE = "mobile";
+	public static final String NAME = "name";
 
 	public static final String CONTACTS = "contacts";
 
@@ -31,5 +32,22 @@ public class JSONUtils {
 	public static final String CONTACT_IMAGE = "contact_images";
 
 	public static final String USER_DATA = "user_data";
+
+	// Chat JSON Utils
+
+	public static final String C_FROM = "c_from";
+	public static final String C_TO = "c_to";
+	public static final String C_MSG = "c_msg";
+	public static final String C_IMAGE = "c_image";
+	public static final String HAS_IMAGE = "hasImage";
+	public static final String C_TIMESTAMP = "c_timestamp";
+	public static final String CHAT_MESSAGES = "chat_messages";
+
+	// Chat Shared Preferences
+
+	public static final String CHAT_FROM_NAME = "chat_from_name";
+	public static final String CHAT_FROM_PHONE = "chat_from_phone";
+	public static final String CHAT_TO_NAME = "chat_to_name";
+	public static final String CHAT_TO_PHONE = "chat_to_phone";
 
 }

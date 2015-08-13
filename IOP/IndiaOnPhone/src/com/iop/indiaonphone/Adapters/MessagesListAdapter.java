@@ -1,6 +1,5 @@
 package com.iop.indiaonphone.Adapters;
 
-import java.io.File;
 import java.util.List;
 
 import android.annotation.SuppressLint;
@@ -16,6 +15,7 @@ import android.widget.TextView;
 
 import com.iop.indiaonphone.R;
 import com.iop.indiaonphone.chatUtils.Message;
+import com.iop.indiaonphone.utils.ProjectUtils;
 
 public class MessagesListAdapter extends BaseAdapter {
 
@@ -76,17 +76,18 @@ public class MessagesListAdapter extends BaseAdapter {
 		if (messagesItems.get(position).isImage()) {
 			// User Added Image
 
-			File imgFile = new File(messagesItems.get(position).getImagePath());
+			byte[] decodedString = ProjectUtils.decodeImage(messagesItems.get(
+					position).getImage());
 
-			if (imgFile.exists()) {
+			if (decodedString.length > 0) {
 
-				Bitmap myBitmap = BitmapFactory.decodeFile(imgFile
-						.getAbsolutePath());
+				Bitmap decodedByte = BitmapFactory.decodeByteArray(
+						decodedString, 0, decodedString.length);
 				ImageView imageView = (ImageView) convertView
 						.findViewById(R.id.imgChatMessage);
+				imageView.setImageBitmap(decodedByte);
 				imageView.setVisibility(View.VISIBLE);
-
-				imageView.setImageBitmap(myBitmap);
+				txtMsg.setVisibility(View.GONE);
 
 			}
 
