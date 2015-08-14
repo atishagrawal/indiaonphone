@@ -116,8 +116,12 @@ public class ChatContactsActivity extends Activity implements
 
 				c_msg = inputMsg.getText().toString();
 
-				Message m = new Message(fromName, c_msg, null, true, false);
-				appendMessage(m);
+				if (TextUtils.getTrimmedLength(c_msg) > 0) {
+
+					Message m = new Message(fromName, c_msg, null, true, false);
+					appendMessage(m);
+
+				}
 
 				// Clearing the input filed once message was sent
 				inputMsg.setText("");

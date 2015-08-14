@@ -3,9 +3,16 @@
     tools:context="com.iop.indiaonphone.ChatHomeActivity" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_main_website"
+        android:icon="@drawable/ic_arrow_right"
+        android:orderInCategory="100"
+        android:showAsAction="ifRoom"
+        android:title="@string/action_go_to_website"/>
+    <item
+        android:id="@+id/action_chat_contacts_refresh"
+        android:icon="@drawable/ic_refresh"
         android:orderInCategory="1"
         android:showAsAction="always"
-        android:title="@string/action_go_to_website"/>
+        android:title="@string/action_chat_contacts_refresh"/>
 
 </menu>

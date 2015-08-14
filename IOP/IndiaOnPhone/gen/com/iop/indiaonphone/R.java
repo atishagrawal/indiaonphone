@@ -73,16 +73,21 @@ public final class R {
         public static final int bg_messages=0x7f020000;
         public static final int bg_msg_from=0x7f020001;
         public static final int bg_msg_you=0x7f020002;
-        public static final int ic_attachment=0x7f020003;
-        public static final int ic_contact_image=0x7f020004;
-        public static final int ic_indiaonphone_logo=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ic_white_arrow_right=0x7f020007;
-        public static final int tile_bg=0x7f020008;
+        public static final int ic_arrow_right=0x7f020003;
+        public static final int ic_attachment=0x7f020004;
+        public static final int ic_contact_image=0x7f020005;
+        public static final int ic_dashboard=0x7f020006;
+        public static final int ic_indiaonphone_logo=0x7f020007;
+        public static final int ic_launcher=0x7f020008;
+        public static final int ic_refresh=0x7f020009;
+        public static final int ic_white_arrow_right=0x7f02000a;
+        public static final int tile_bg=0x7f02000b;
     }
     public static final class id {
         public static final int action_attachments=0x7f0a0014;
-        public static final int action_settings=0x7f0a0015;
+        public static final int action_chat_contacts_refresh=0x7f0a0016;
+        public static final int action_main_website=0x7f0a0015;
+        public static final int action_settings=0x7f0a0017;
         public static final int btnSend=0x7f0a0003;
         public static final int btnSignUp=0x7f0a0009;
         public static final int edFullName=0x7f0a0007;
@@ -122,7 +127,8 @@ public final class R {
         public static final int main=0x7f090002;
     }
     public static final class string {
-        public static final int action_attachments=0x7f070012;
+        public static final int action_attachments=0x7f070013;
+        public static final int action_chat_contacts_refresh=0x7f07000e;
         public static final int action_go_to_website=0x7f07000d;
         public static final int action_settings=0x7f070002;
         public static final int activity_main_full_name_hint=0x7f070004;
@@ -132,20 +138,20 @@ public final class R {
         public static final int app_name=0x7f070000;
         /**  Chat Contacts Activity 
          */
-        public static final int btn_send=0x7f070010;
-        public static final int contacts_image_content_description=0x7f07000e;
+        public static final int btn_send=0x7f070011;
+        public static final int contacts_image_content_description=0x7f07000f;
         public static final int hello_world=0x7f070001;
         /**  MainActivity 
          */
         public static final int india_on_phone_logo_heading=0x7f070003;
         public static final int share_message=0x7f070008;
-        public static final int title_activity_chat_contacts=0x7f070011;
+        public static final int title_activity_chat_contacts=0x7f070012;
         /**  Chat Home Activity 
          */
         public static final int title_activity_chat_home=0x7f070009;
         /**  WebView Activity 
          */
-        public static final int title_activity_web_view=0x7f07000f;
+        public static final int title_activity_web_view=0x7f070010;
         public static final int title_section1=0x7f07000a;
         public static final int title_section2=0x7f07000b;
         public static final int title_section3=0x7f07000c;

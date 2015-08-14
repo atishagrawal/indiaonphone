@@ -43,26 +43,26 @@ public class WebViewActivity extends Activity {
 				return true;
 			}
 
-			public void onLoadResource(WebView view, String url) {
-				if (progressDialog == null) {
-					progressDialog = new ProgressDialog(WebViewActivity.this);
-					progressDialog.setMessage("Loading...");
-					// progressDialog.setCancelable(false);
-					progressDialog.show();
-				}
-			}
-
-			public void onPageFinished(WebView view, String url) {
-				try {
-					if (progressDialog.isShowing()) {
-						progressDialog.dismiss();
-						progressDialog = null;
-
-					}
-				} catch (Exception exception) {
-					exception.printStackTrace();
-				}
-			}
+			// public void onLoadResource(WebView view, String url) {
+			// if (progressDialog == null) {
+			// progressDialog = new ProgressDialog(WebViewActivity.this);
+			// progressDialog.setMessage("Loading...");
+			// // progressDialog.setCancelable(false);
+			// progressDialog.show();
+			// }
+			// }
+			//
+			// public void onPageFinished(WebView view, String url) {
+			// try {
+			// if (progressDialog.isShowing()) {
+			// progressDialog.dismiss();
+			// progressDialog = null;
+			//
+			// }
+			// } catch (Exception exception) {
+			// exception.printStackTrace();
+			// }
+			// }
 
 		});
 

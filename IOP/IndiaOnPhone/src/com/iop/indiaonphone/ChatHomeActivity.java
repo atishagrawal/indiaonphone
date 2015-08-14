@@ -14,7 +14,6 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.iop.indiaonphone.fragments.CommunityChatFragment;
 import com.iop.indiaonphone.fragments.ContactsChatFragment;
 import com.iop.indiaonphone.fragments.GroupChatFragment;
 
@@ -87,14 +86,25 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+
+		switch (id) {
+		case R.id.action_main_website:
 
 			startActivity(new Intent(ChatHomeActivity.this,
 					WebViewActivity.class));
 
 			return true;
+
+			// case R.id.action_chat_contacts_refresh:
+			//
+			// // Refreshing the chat contacts fragment
+			//
+			// return true;
+		default:
+
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
+
 	}
 
 	@Override
@@ -139,9 +149,9 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 
 				return GroupChatFragment.newInstance(position + 1);
 
-			case 2:
-
-				return CommunityChatFragment.newInstance(position + 1);
+				// case 2:
+				//
+				// return CommunityChatFragment.newInstance(position + 1);
 
 			default:
 
@@ -153,7 +163,7 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 		@Override
 		public int getCount() {
 			// Show 3 total pages.
-			return 3;
+			return 2;
 		}
 
 		@Override
@@ -164,8 +174,8 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 				return getString(R.string.title_section1).toUpperCase(l);
 			case 1:
 				return getString(R.string.title_section2).toUpperCase(l);
-			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
+				// case 2:
+				// return getString(R.string.title_section3).toUpperCase(l);
 			}
 			return null;
 		}
