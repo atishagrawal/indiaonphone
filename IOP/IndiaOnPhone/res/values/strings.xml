@@ -19,7 +19,7 @@
     <string name="title_section1">Contacts</string>
     <string name="title_section2">Group</string>
     <string name="title_section3">Community</string>
-    <string name="action_go_to_website">Main Menu</string>
+    <string name="action_go_to_website">Dash</string>
     <string name="action_chat_contacts_refresh">Refresh</string>
     <string name="contacts_image_content_description">Contact Image</string>
 

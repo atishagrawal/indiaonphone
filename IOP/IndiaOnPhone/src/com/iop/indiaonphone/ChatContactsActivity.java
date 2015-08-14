@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.iop.indiaonphone.Adapters.MessagesListAdapter;
+import com.iop.indiaonphone.AsyncTasks.GetAllSMSAPI;
 import com.iop.indiaonphone.AsyncTasks.GetChatMessageAPI;
 import com.iop.indiaonphone.AsyncTasks.SendChatMessageAPI;
 import com.iop.indiaonphone.chatUtils.Message;
@@ -142,6 +143,20 @@ public class ChatContactsActivity extends Activity implements
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see android.app.Activity#onResume()
+	 */
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		if (mHandler == null)
+			mHandler = new Handler();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see android.app.Activity#onStart()
 	 */
 	@Override
@@ -221,6 +236,9 @@ public class ChatContactsActivity extends Activity implements
 	private void getAllMessages() {
 
 		// Fire get all messages API
+
+		new GetAllSMSAPI(ChatContactsActivity.this, c_from, c_to,
+				ChatContactsActivity.this).execute();
 
 	}
 

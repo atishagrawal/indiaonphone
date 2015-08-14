@@ -3,6 +3,7 @@
  */
 package com.iop.indiaonphone.AsyncTasks;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpEntity;
@@ -11,17 +12,19 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.iop.indiaonphone.Adapters.MessagesListAdapter;
 import com.iop.indiaonphone.chatUtils.Message;
+import com.iop.indiaonphone.interfaces.OnReceivingChatMessages;
 import com.iop.indiaonphone.utils.ApplicationUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
@@ -38,24 +41,28 @@ public class GetAllSMSAPI extends AsyncTask<Void, Void, Boolean> {
 
 	// Chat messages list adapter
 	private Context context;
-	private MessagesListAdapter adapter;
-	private List<Message> listMessages;
-	private ListView listViewMessages;
-	private String c_to, c_from;
+	private String c_to, c_from, fromName, toName;
+
+	private OnReceivingChatMessages listener;
 
 	/**
 	 * 
 	 */
-	public GetAllSMSAPI(Context mContext,
-			MessagesListAdapter messagesListAdapter, ListView listView,
-			String mC_from, String mC_to) {
+	public GetAllSMSAPI(Context mContext, String mC_from, String mC_to,
+			OnReceivingChatMessages mlistener) {
 		// Initializing the variables
 
 		this.context = mContext;
-		this.adapter = messagesListAdapter;
-		this.listViewMessages = listView;
 		this.c_from = mC_from;
 		this.c_to = mC_to;
+		this.listener = mlistener;
+
+		SharedPreferences sharedPref = context.getSharedPreferences(
+				ApplicationUtils.CHAT_SHARED_PREFERENCES_NAME,
+				Context.MODE_PRIVATE);
+
+		toName = sharedPref.getString(JSONUtils.CHAT_TO_NAME, null);
+		fromName = sharedPref.getString(JSONUtils.CHAT_FROM_NAME, null);
 
 	}
 
@@ -64,6 +71,7 @@ public class GetAllSMSAPI extends AsyncTask<Void, Void, Boolean> {
 	 * 
 	 * @see android.os.AsyncTask#doInBackground(Params[])
 	 */
+	@SuppressWarnings("deprecation")
 	@Override
 	protected Boolean doInBackground(Void... arg0) {
 		// Checking Internet connection
@@ -80,8 +88,8 @@ public class GetAllSMSAPI extends AsyncTask<Void, Void, Boolean> {
 				httpPost.setHeader("Content-type", "application/json");
 
 				JSONObject jsonObjectRequest = new JSONObject();
-				jsonObjectRequest.put(JSONUtils.MOBILE, c_from);
-				jsonObjectRequest.put(JSONUtils.MOBILE, c_to);
+				jsonObjectRequest.put(JSONUtils.C_FROM, c_from);
+				jsonObjectRequest.put(JSONUtils.C_TO, c_to);
 
 				StringEntity entity = new StringEntity(
 						jsonObjectRequest.toString());
@@ -145,6 +153,74 @@ public class GetAllSMSAPI extends AsyncTask<Void, Void, Boolean> {
 
 			try {
 				JSONObject jsonObjectResponse = new JSONObject(response);
+
+				JSONArray chatMessagesJsonArray = new JSONArray(
+						jsonObjectResponse.getString(JSONUtils.CHAT_MESSAGES));
+
+				List<Message> listMessages = new ArrayList<Message>();
+
+				for (int i = 0; i < chatMessagesJsonArray.length(); i++) {
+
+					JSONObject innerJsonObject = chatMessagesJsonArray
+							.getJSONObject(i);
+
+					Message m = null;
+
+					// Comparing sender
+
+					if (TextUtils.equals(c_from,
+							innerJsonObject.getString(JSONUtils.C_FROM))) {
+
+						// Current user is the sender
+
+						if (innerJsonObject.getBoolean(JSONUtils.HAS_IMAGE)) {
+							// Message contains image
+							m = new Message(fromName, null,
+									innerJsonObject
+											.getString(JSONUtils.C_IMAGE),
+									true, true);
+
+						} else {
+
+							// Message doesn't contains image
+
+							m = new Message(fromName,
+									innerJsonObject.getString(JSONUtils.C_MSG),
+									null, true, false);
+
+						}
+
+					} else {
+
+						// Other user is the sender
+
+						if (innerJsonObject.getBoolean(JSONUtils.HAS_IMAGE)) {
+							// Message contains image
+							m = new Message(toName, null,
+									innerJsonObject
+											.getString(JSONUtils.C_IMAGE),
+									false, true);
+
+						} else {
+
+							// Message doesn't contains image
+
+							m = new Message(toName,
+									innerJsonObject.getString(JSONUtils.C_MSG),
+									null, false, false);
+
+						}
+
+					}
+
+					if (m != null)
+						listMessages.add(m);
+
+				}
+
+				if (listMessages.size() > 0)
+
+					listener.onTaskCompleted(listMessages);
 
 			} catch (JSONException e) {
 				// Printing errors
