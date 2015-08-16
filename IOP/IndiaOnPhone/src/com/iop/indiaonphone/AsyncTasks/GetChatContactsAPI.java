@@ -171,6 +171,7 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 				final ArrayList<String> contacts_name = new ArrayList<String>();
 				final ArrayList<String> contacts_mobile = new ArrayList<String>();
 				final ArrayList<String> contacts_image = new ArrayList<String>();
+				final ArrayList<Integer> unread_msgs = new ArrayList<Integer>();
 
 				for (int i = 0; i < jsonArrayContacts.length(); i++) {
 
@@ -183,6 +184,8 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 							.getString(JSONUtils.CONTACT_MOBILE));
 					contacts_image.add(innerJsonObject.optString(
 							JSONUtils.CONTACT_IMAGE, null));
+					unread_msgs.add(innerJsonObject.optInt(
+							JSONUtils.UNREAD_MSG, 0));
 
 				}
 
@@ -220,6 +223,17 @@ public class GetChatContactsAPI extends AsyncTask<Void, Void, Boolean> {
 							Bitmap decodedByte = BitmapFactory.decodeByteArray(
 									decodedString, 0, decodedString.length);
 							imageViewContactImage.setImageBitmap(decodedByte);
+
+						}
+
+						if (unread_msgs.get(position) > 0) {
+							// There are unread messages
+							TextView textViewUnreadMessages = (TextView) view
+									.findViewById(R.id.txtChatNumberOfUnreadMessages);
+
+							textViewUnreadMessages.setVisibility(View.VISIBLE);
+							textViewUnreadMessages.setText(unread_msgs.get(
+									position).toString());
 
 						}
 
