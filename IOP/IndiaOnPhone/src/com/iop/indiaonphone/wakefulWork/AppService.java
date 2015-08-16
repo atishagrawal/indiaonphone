@@ -14,10 +14,16 @@
 
 package com.iop.indiaonphone.wakefulWork;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.commonsware.cwac.wakeful.WakefulIntentService;
+import com.iop.indiaonphone.AsyncTasks.GetChatNotifications;
+import com.iop.indiaonphone.utils.ApplicationUtils;
+import com.iop.indiaonphone.utils.JSONUtils;
 
 /**
  * 
@@ -33,21 +39,28 @@ public class AppService extends WakefulIntentService {
 	@Override
 	protected void doWakefulWork(Intent intent) {
 
-		// UserCRUD userCRUD = new UserCRUD(AppService.this);
-		//
-		// String token = userCRUD.getToken();
-		//
-		// if (TextUtils.isEmpty(token)) {
-		//
-		// // No token found. Do nothing
-		//
-		// return;
-		//
-		// }
-		//
-		Log.e("AppService", "Firing GetNotifications API");
-		//
-		// new GetChatNotifications(AppService.this).execute();
+		// Checking for data
+
+		SharedPreferences sharedPref = getSharedPreferences(
+				ApplicationUtils.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+
+		String mobile = sharedPref.getString(JSONUtils.MOBILE, null);
+		if (TextUtils.isEmpty(mobile)) {
+			// No Mobile number present in the shared preferences. It means user
+			// has not been registered yet. Shared preferences must have a value
+			// once a user submits his phone number and name to the webserver
+
+			Log.e("AppService", "No user data. Hence no message notification");
+		} else {
+			// /Shared Preferences already has the phone number. It means, user
+			// has already been registered on the webserver. Get unread messages
+			// notifications from the webserver and display it to the user
+
+			Log.e("AppService", "Firing GetNotifications API");
+
+			new GetChatNotifications(AppService.this).execute();
+
+		}
 
 	}
 }

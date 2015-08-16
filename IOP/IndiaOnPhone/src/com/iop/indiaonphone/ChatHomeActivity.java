@@ -14,8 +14,10 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.iop.indiaonphone.fragments.ContactsChatFragment;
 import com.iop.indiaonphone.fragments.GroupChatFragment;
+import com.iop.indiaonphone.wakefulWork.AppListener;
 
 public class ChatHomeActivity extends Activity implements ActionBar.TabListener {
 
@@ -37,6 +39,10 @@ public class ChatHomeActivity extends Activity implements ActionBar.TabListener 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_chat_home);
+
+		// Starting the ChatNotification Service
+
+		WakefulIntentService.scheduleAlarms(new AppListener(), this, false);
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();

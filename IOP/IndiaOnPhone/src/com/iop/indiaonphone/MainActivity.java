@@ -37,7 +37,10 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		// Starting the ChatNotification Service
 		WakefulIntentService.scheduleAlarms(new AppListener(), this, false);
+
+		// Getting mobile number from the SharedPreferences
 
 		SharedPreferences sharedPref = getSharedPreferences(
 				ApplicationUtils.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);

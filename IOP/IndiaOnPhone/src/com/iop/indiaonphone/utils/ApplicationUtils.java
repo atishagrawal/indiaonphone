@@ -17,8 +17,7 @@ public class ApplicationUtils {
 	 * The static API_ID and API_KEY to be provided with each API call
 	 */
 
-	public static final String API_ID = "3";
-	public static final String API_KEY = "06875425-b293-43af-9966-3566045f6bb95b1f7c5e-f932-4916-87f5-db0b298f2";
+	public static final int NOTIFICATION_ID = 1;
 
 	public static final String SHARED_PREFERENCES_NAME = "IndiaOnPhoneSharedPreference";
 	public static final String CHAT_SHARED_PREFERENCES_NAME = "ChatIndiaOnPhoneSharedPreference";
@@ -47,5 +46,8 @@ public class ApplicationUtils {
 
 	public static final String GET_CHAT_MSG_API = MAIN_WEBSITE_WEBSERVICE
 			+ "get_chat_msg.php";
+
+	public static final String GET_CHAT_NOTIFICATION = MAIN_WEBSITE_WEBSERVICE
+			+ "get_notification.php";
 
 }

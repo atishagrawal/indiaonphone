@@ -42,6 +42,7 @@ public class JSONUtils {
 	public static final String HAS_IMAGE = "hasImage";
 	public static final String C_TIMESTAMP = "c_timestamp";
 	public static final String CHAT_MESSAGES = "chat_messages";
+	public static final String SENDERS = "senders";
 
 	// Chat Shared Preferences
 
