@@ -29,33 +29,36 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static final int accent=0x7f050003;
+        public static final int accent=0x7f060003;
         /**  Chat Screen Colors 
          */
-        public static final int actionbar=0x7f050008;
-        public static final int bg_btn_join=0x7f050011;
-        public static final int bg_msg_from=0x7f05000f;
-        public static final int bg_msg_input=0x7f050012;
-        public static final int bg_msg_you=0x7f05000e;
-        public static final int body_background=0x7f050009;
-        public static final int body_background_green=0x7f05000a;
-        public static final int divider=0x7f050007;
-        public static final int icons=0x7f050006;
-        public static final int lblFromName=0x7f050014;
-        public static final int msg_border_color=0x7f050010;
+        public static final int actionbar=0x7f060008;
+        public static final int bg_btn_join=0x7f060011;
+        public static final int bg_msg_from=0x7f06000f;
+        public static final int bg_msg_input=0x7f060012;
+        public static final int bg_msg_you=0x7f06000e;
+        public static final int body_background=0x7f060009;
+        public static final int body_background_green=0x7f06000a;
+        public static final int divider=0x7f060007;
+        public static final int icons=0x7f060006;
+        public static final int lblFromName=0x7f060014;
+        public static final int msg_border_color=0x7f060010;
         /**  App Colors 
          */
-        public static final int primary_orange=0x7f050000;
-        public static final int primary_orange_dark=0x7f050001;
-        public static final int primary_orange_light=0x7f050002;
-        public static final int primary_text=0x7f050004;
-        public static final int secondary_text=0x7f050005;
-        public static final int server_status_bar=0x7f05000b;
-        public static final int text_msg_input=0x7f050013;
-        public static final int title_gray=0x7f05000c;
-        public static final int white=0x7f05000d;
+        public static final int primary_orange=0x7f060000;
+        public static final int primary_orange_dark=0x7f060001;
+        public static final int primary_orange_light=0x7f060002;
+        public static final int primary_text=0x7f060004;
+        public static final int secondary_text=0x7f060005;
+        public static final int server_status_bar=0x7f06000b;
+        public static final int text_msg_input=0x7f060013;
+        public static final int title_gray=0x7f06000c;
+        public static final int white=0x7f06000d;
     }
     public static final class dimen {
+        /**  Chat Activity 
+         */
+        public static final int activity_chat_home_inner_listView_margin=0x7f070003;
         /**  Default screen margins, per the Android Design guidelines. 
 
          Example customization of dimensions originally defined in res/values/dimens.xml
@@ -63,11 +66,11 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_horizontal_margin=0x7f070000;
         /**  MainActivity 
          */
-        public static final int activity_main_objects_top_margin=0x7f060002;
-        public static final int activity_vertical_margin=0x7f060001;
+        public static final int activity_main_objects_top_margin=0x7f070002;
+        public static final int activity_vertical_margin=0x7f070001;
     }
     public static final class drawable {
         public static final int bg_messages=0x7f020000;
@@ -81,33 +84,35 @@ public final class R {
         public static final int ic_launcher=0x7f020008;
         public static final int ic_refresh=0x7f020009;
         public static final int ic_white_arrow_right=0x7f02000a;
-        public static final int tile_bg=0x7f02000b;
+        public static final int rounded_textview=0x7f02000b;
+        public static final int tile_bg=0x7f02000c;
     }
     public static final class id {
-        public static final int action_attachments=0x7f0a0014;
-        public static final int action_chat_contacts_refresh=0x7f0a0016;
-        public static final int action_main_website=0x7f0a0015;
-        public static final int action_settings=0x7f0a0017;
-        public static final int btnSend=0x7f0a0003;
-        public static final int btnSignUp=0x7f0a0009;
-        public static final int edFullName=0x7f0a0007;
-        public static final int edPhone=0x7f0a0008;
-        public static final int imgChatMessage=0x7f0a0013;
-        public static final int imgIndiaOnPhoneLogo=0x7f0a0006;
-        public static final int imgInnerListContactImage=0x7f0a000d;
-        public static final int inputMsg=0x7f0a0002;
-        public static final int lblMsgFrom=0x7f0a0011;
-        public static final int linearLayoutInnerContactsListRightPart=0x7f0a000e;
-        public static final int linearLayoutMainActivity=0x7f0a0005;
-        public static final int listChatContacts=0x7f0a000c;
-        public static final int list_view_messages=0x7f0a0000;
-        public static final int llMsgCompose=0x7f0a0001;
-        public static final int pager=0x7f0a0004;
-        public static final int txtInnerListContactName=0x7f0a000f;
-        public static final int txtInnerListContactPhone=0x7f0a0010;
-        public static final int txtMsg=0x7f0a0012;
-        public static final int txtShareMessage=0x7f0a000a;
-        public static final int webView=0x7f0a000b;
+        public static final int action_attachments=0x7f0b0015;
+        public static final int action_chat_contacts_refresh=0x7f0b0017;
+        public static final int action_main_website=0x7f0b0016;
+        public static final int action_settings=0x7f0b0018;
+        public static final int btnSend=0x7f0b0003;
+        public static final int btnSignUp=0x7f0b0009;
+        public static final int edFullName=0x7f0b0007;
+        public static final int edPhone=0x7f0b0008;
+        public static final int imgChatMessage=0x7f0b0014;
+        public static final int imgIndiaOnPhoneLogo=0x7f0b0006;
+        public static final int imgInnerListContactImage=0x7f0b000d;
+        public static final int inputMsg=0x7f0b0002;
+        public static final int lblMsgFrom=0x7f0b0012;
+        public static final int linearLayoutInnerContactsListRightPart=0x7f0b000e;
+        public static final int linearLayoutMainActivity=0x7f0b0005;
+        public static final int listChatContacts=0x7f0b000c;
+        public static final int list_view_messages=0x7f0b0000;
+        public static final int llMsgCompose=0x7f0b0001;
+        public static final int pager=0x7f0b0004;
+        public static final int txtChatNumberOfUnreadMessages=0x7f0b0011;
+        public static final int txtInnerListContactName=0x7f0b000f;
+        public static final int txtInnerListContactPhone=0x7f0b0010;
+        public static final int txtMsg=0x7f0b0013;
+        public static final int txtShareMessage=0x7f0b000a;
+        public static final int webView=0x7f0b000b;
     }
     public static final class layout {
         public static final int activity_chat_contacts=0x7f030000;
@@ -122,39 +127,39 @@ public final class R {
         public static final int list_item_message_right=0x7f030009;
     }
     public static final class menu {
-        public static final int chat_contacts=0x7f090000;
-        public static final int chat_home=0x7f090001;
-        public static final int main=0x7f090002;
+        public static final int chat_contacts=0x7f0a0000;
+        public static final int chat_home=0x7f0a0001;
+        public static final int main=0x7f0a0002;
     }
     public static final class string {
-        public static final int action_attachments=0x7f070013;
-        public static final int action_chat_contacts_refresh=0x7f07000e;
-        public static final int action_go_to_website=0x7f07000d;
-        public static final int action_settings=0x7f070002;
-        public static final int activity_main_full_name_hint=0x7f070004;
-        public static final int activity_main_phone_number_hint=0x7f070005;
-        public static final int activity_main_sign_up_button_text=0x7f070006;
-        public static final int activity_main_yes_button_text=0x7f070007;
-        public static final int app_name=0x7f070000;
+        public static final int action_attachments=0x7f080013;
+        public static final int action_chat_contacts_refresh=0x7f08000e;
+        public static final int action_go_to_website=0x7f08000d;
+        public static final int action_settings=0x7f080002;
+        public static final int activity_main_full_name_hint=0x7f080004;
+        public static final int activity_main_phone_number_hint=0x7f080005;
+        public static final int activity_main_sign_up_button_text=0x7f080006;
+        public static final int activity_main_yes_button_text=0x7f080007;
+        public static final int app_name=0x7f080000;
         /**  Chat Contacts Activity 
          */
-        public static final int btn_send=0x7f070011;
-        public static final int contacts_image_content_description=0x7f07000f;
-        public static final int hello_world=0x7f070001;
+        public static final int btn_send=0x7f080011;
+        public static final int contacts_image_content_description=0x7f08000f;
+        public static final int hello_world=0x7f080001;
         /**  MainActivity 
          */
-        public static final int india_on_phone_logo_heading=0x7f070003;
-        public static final int share_message=0x7f070008;
-        public static final int title_activity_chat_contacts=0x7f070012;
+        public static final int india_on_phone_logo_heading=0x7f080003;
+        public static final int share_message=0x7f080008;
+        public static final int title_activity_chat_contacts=0x7f080012;
         /**  Chat Home Activity 
          */
-        public static final int title_activity_chat_home=0x7f070009;
+        public static final int title_activity_chat_home=0x7f080009;
         /**  WebView Activity 
          */
-        public static final int title_activity_web_view=0x7f070010;
-        public static final int title_section1=0x7f07000a;
-        public static final int title_section2=0x7f07000b;
-        public static final int title_section3=0x7f07000c;
+        public static final int title_activity_web_view=0x7f080010;
+        public static final int title_section1=0x7f08000a;
+        public static final int title_section2=0x7f08000b;
+        public static final int title_section3=0x7f08000c;
     }
     public static final class style {
         /** 
@@ -195,15 +200,18 @@ public final class R {
 
         
          */
-        public static final int AppBaseTheme=0x7f080000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
          */
-        public static final int AppTheme=0x7f080001;
+        public static final int AppTheme=0x7f090001;
         /**  This does the magic! 
  This does the magic! 
          */
-        public static final int MyActionBar=0x7f080002;
+        public static final int MyActionBar=0x7f090002;
+    }
+    public static final class xml {
+        public static final int wakeful=0x7f050000;
     }
 }

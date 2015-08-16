@@ -15,10 +15,12 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.commonsware.cwac.wakeful.WakefulIntentService;
 import com.iop.indiaonphone.AsyncTasks.MobileAppRegisterAsyncTask;
 import com.iop.indiaonphone.utils.ApplicationUtils;
 import com.iop.indiaonphone.utils.JSONUtils;
 import com.iop.indiaonphone.utils.ProjectUtils;
+import com.iop.indiaonphone.wakefulWork.AppListener;
 
 /**
  * 
@@ -34,6 +36,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		WakefulIntentService.scheduleAlarms(new AppListener(), this, false);
 
 		SharedPreferences sharedPref = getSharedPreferences(
 				ApplicationUtils.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);

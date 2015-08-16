@@ -8,4 +8,8 @@
 
     <dimen name="activity_main_objects_top_margin">16dp</dimen>
 
+    <!-- Chat Activity -->
+
+    <dimen name="activity_chat_home_inner_listView_margin">10dp</dimen>
+
 </resources>

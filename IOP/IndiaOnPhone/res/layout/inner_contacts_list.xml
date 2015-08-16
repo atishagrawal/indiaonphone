@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:layout_gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_chat_home_inner_listView_margin" >
 
     <ImageView
         android:id="@+id/imgInnerListContactImage"
@@ -36,5 +38,16 @@
             android:text="@string/hello_world"
             android:textSize="8pt" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtChatNumberOfUnreadMessages"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rounded_textview"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
 
 </LinearLayout>
