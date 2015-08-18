@@ -2,7 +2,9 @@ package com.iop.indiaonphone;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.webkit.WebView;
@@ -39,7 +41,27 @@ public class WebViewActivity extends Activity {
 		webView.setWebViewClient(new WebViewClient() {
 
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
-				view.loadUrl(url);
+
+				// Checking for phone number and SMS
+
+				if (url.indexOf("tel:") == 0) {
+
+					Intent intent = new Intent(Intent.ACTION_CALL);
+					intent.setData(Uri.parse(url));
+					startActivity(intent);
+
+				} else if (url.indexOf("sms:") == 0) {
+					Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+					sendIntent.setData(Uri.parse(url));
+					startActivity(sendIntent);
+				}
+
+				else {
+
+					view.loadUrl(url);
+				}
+
+				// view.loadUrl(url);
 				return true;
 			}
 
