@@ -36,6 +36,7 @@ public class WebViewActivity extends Activity {
 	public static final String EXTRA_FROM_NOTIFICATION = "EXTRA_FROM_NOTIFICATION";
 
 	private ValueCallback<Uri[]> mFilePathCallback;
+	private ValueCallback<Uri> mUploadMessage;
 	private String mCameraPhotoPath;
 
 	private WebView webView;
@@ -73,6 +74,23 @@ public class WebViewActivity extends Activity {
 		//
 
 		webView.setWebChromeClient(new WebChromeClient() {
+
+			public void openFileChooser(ValueCallback<Uri> uploadMsg) {
+				WebViewActivity.this.showAttachmentDialog(uploadMsg);
+			}
+
+			// For Android > 3.x
+			public void openFileChooser(ValueCallback<Uri> uploadMsg,
+					String acceptType) {
+				WebViewActivity.this.showAttachmentDialog(uploadMsg);
+			}
+
+			// For Android > 4.1
+			public void openFileChooser(ValueCallback<Uri> uploadMsg,
+					String acceptType, String capture) {
+				WebViewActivity.this.showAttachmentDialog(uploadMsg);
+			}
+
 			public boolean onShowFileChooser(WebView webView,
 					ValueCallback<Uri[]> filePathCallback,
 					WebChromeClient.FileChooserParams fileChooserParams) {
@@ -286,6 +304,18 @@ public class WebViewActivity extends Activity {
 		mFilePathCallback.onReceiveValue(results);
 		mFilePathCallback = null;
 		return;
+	}
+
+	private void showAttachmentDialog(ValueCallback<Uri> uploadMsg) {
+		this.mUploadMessage = uploadMsg;
+
+		Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+		i.addCategory(Intent.CATEGORY_OPENABLE);
+		i.setType("*/*");
+
+		this.startActivityForResult(
+				Intent.createChooser(i, "Choose type of attachment"),
+				INPUT_FILE_REQUEST_CODE);
 	}
 
 }
