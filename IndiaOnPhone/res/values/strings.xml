@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">India On Phone</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- MainActivity -->
+    <string name="india_on_phone_logo_heading">India On Phone</string>
+    <string name="activity_main_full_name_hint">Full Name</string>
+    <string name="activity_main_phone_number_hint">Phone Number</string>
+    <string name="activity_main_sign_up_button_text">Sign Up</string>
+    <string name="activity_main_yes_button_text">YES</string>
+    <string name="share_message">Share your contacts with India On Phone to connect and communicate with people, groups and communities.\nThanks!</string>
+
+    <!-- Chat Home Activity -->
+
+    <string name="title_activity_chat_home">ChatHomeActivity</string>
+    <string name="title_section1">Contacts</string>
+    <string name="title_section2">Group</string>
+    <string name="title_section3">Community</string>
+    <string name="action_go_to_website">Dash</string>
+    <string name="action_chat_contacts_refresh">Refresh</string>
+    <string name="contacts_image_content_description">Contact Image</string>
+
+    <!-- WebView Activity -->
+
+    <string name="title_activity_web_view">WebViewActivity</string>
+
+    <!-- Chat Contacts Activity -->
+    <string name="btn_send">Send</string>
+    <string name="title_activity_chat_contacts">ChatContactsActivity</string>
+    <string name="action_attachments">Attachments</string>
+
+</resources>

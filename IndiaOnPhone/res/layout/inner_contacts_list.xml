@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_chat_home_inner_listView_margin" >
+
+    <ImageView
+        android:id="@+id/imgInnerListContactImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/contacts_image_content_description"
+        android:src="@drawable/ic_contact_image" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutInnerContactsListRightPart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtInnerListContactName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:textSize="10pt"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtInnerListContactPhone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world"
+            android:textSize="8pt" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtChatNumberOfUnreadMessages"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rounded_textview"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+</LinearLayout>
