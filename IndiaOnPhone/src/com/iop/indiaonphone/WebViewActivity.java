@@ -309,13 +309,46 @@ public class WebViewActivity extends Activity {
 	private void showAttachmentDialog(ValueCallback<Uri> uploadMsg) {
 		this.mUploadMessage = uploadMsg;
 
-		Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-		i.addCategory(Intent.CATEGORY_OPENABLE);
-		i.setType("*/*");
+		Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+		if (takePictureIntent.resolveActivity(WebViewActivity.this
+				.getPackageManager()) != null) {
+			// Create the File where the photo should go
+			File photoFile = null;
+			try {
+				photoFile = createImageFile();
+				takePictureIntent.putExtra("PhotoPath", mCameraPhotoPath);
+			} catch (IOException ex) {
+				// Error occurred while creating the File
+				Log.e(TAG, "Unable to create Image File", ex);
+			}
 
-		this.startActivityForResult(
-				Intent.createChooser(i, "Choose type of attachment"),
-				INPUT_FILE_REQUEST_CODE);
+			// Continue only if the File was successfully created
+			if (photoFile != null) {
+				mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
+				takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+						Uri.fromFile(photoFile));
+			} else {
+				takePictureIntent = null;
+			}
+		}
+
+		Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
+		contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
+		contentSelectionIntent.setType("image/*");
+
+		Intent[] intentArray;
+		if (takePictureIntent != null) {
+			intentArray = new Intent[] { takePictureIntent };
+		} else {
+			intentArray = new Intent[0];
+		}
+
+		Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+		chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
+		chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
+		chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+
+		startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
 	}
 
 }

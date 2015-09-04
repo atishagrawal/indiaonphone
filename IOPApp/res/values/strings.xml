@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IOP App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Login Activity -->
+
+    <string name="text_top_left">Options Unlimited Opportunities Unlimited</string>
+    <string name="text_top_right_missed_call_text">Missed Call</string>
+    <string name="text_top_right_message_text">Message</string>
+    <string name="text_top_right_missed_call_number">1800&#8211;111&#8211;900</string>
+    <string name="text_top_right_message_number">9013505050</string>
+    <string name="india_on_phone_logo_heading">India On Phone Logo</string>
+    <string name="login_bar_login_text">LOGIN</string>
+
+</resources>
