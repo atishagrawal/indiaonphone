@@ -117,13 +117,18 @@
             android:id="@+id/btnLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_bar_login_text" />
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
+            android:background="@color/text_green"
+            android:text="@string/login_bar_login_text"
+            android:textColor="@color/text_white"
+            android:textSize="8pt" />
 
         <TextView
             android:id="@+id/txtForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:clickable="true"
             android:text="@string/forgot_password" />
 
@@ -131,8 +136,12 @@
             android:id="@+id/btnRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:text="@string/register_button_text" />
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
+            android:background="@color/text_green"
+            android:text="@string/register_button_text"
+            android:textColor="@color/text_white"
+            android:textSize="8pt" />
     </LinearLayout>
 
 </ScrollView>
