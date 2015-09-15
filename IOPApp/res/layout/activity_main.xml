@@ -58,10 +58,9 @@
         <ImageView
             android:id="@+id/imgIndiaOnPhoneLogo"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
-            android:layout_weight="3"
             android:contentDescription="@string/india_on_phone_logo_heading"
             android:src="@drawable/ic_indiaonphone_logo" />
 
@@ -113,6 +112,27 @@
                 android:hint="@string/password_hint"
                 android:inputType="textPassword" />
         </com.softedge.iopapp.floatingText.FloatLabeledEditText>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_bar_login_text" />
+
+        <TextView
+            android:id="@+id/txtForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:text="@string/forgot_password" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:text="@string/register_button_text" />
     </LinearLayout>
 
 </ScrollView>

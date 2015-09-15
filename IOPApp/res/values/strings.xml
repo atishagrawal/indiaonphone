@@ -16,5 +16,7 @@
     <string name="login_bar_login_text">LOGIN</string>
     <string name="mobile_number_id_hint">MOBILE NUMBER - ID</string>
     <string name="password_hint">PASSWORD</string>
+    <string name="forgot_password"><u>FORGOT PASSWORD</u></string>
+    <string name="register_button_text">NEW USER REGISTRATION</string>
 
 </resources>

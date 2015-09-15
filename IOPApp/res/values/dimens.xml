@@ -7,7 +7,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     
     
-    <dimen name="margin_between_objects_10_dp">10dp</dimen>
+    <dimen name="margin_between_objects_10_dp">5dp</dimen>
     
     
     
