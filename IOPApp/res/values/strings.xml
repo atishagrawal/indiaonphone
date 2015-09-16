@@ -19,4 +19,18 @@
     <string name="forgot_password"><u>FORGOT PASSWORD</u></string>
     <string name="register_button_text">NEW USER REGISTRATION</string>
 
+    <!-- Dashboard Activity -->
+
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_search_text">Search</string>
+    <string name="contacts">Contacts</string>
+    <string name="community">Community</string>
+    <string name="group">Group</string>
+
 </resources>

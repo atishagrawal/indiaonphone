@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.softedge.iopapp.Dashboard$PlaceholderFragment" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDashboardBottomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_green"
+        android:orientation="horizontal"
+        android:padding="2dp" >
+
+        <TextView
+            android:id="@+id/txtDashboardBottomBarContacts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_contacts_white"
+            android:gravity="center"
+            android:text="@string/contacts"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/txtDashboardBottomBarCommunity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_community_white"
+            android:gravity="center"
+            android:text="@string/community"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/txtDashboardBottomBarGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:drawableTop="@drawable/ic_group_white"
+            android:gravity="center"
+            android:text="@string/group"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollviewDashboardMain"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/linearLayoutDashboardBottomBar" >
+
+        <TextView
+            android:id="@+id/section_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world" />
+    </ScrollView>
+
+</RelativeLayout>

@@ -81,40 +81,72 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
         public static final int margin_between_objects_10_dp=0x7f050002;
+        public static final int navigation_drawer_width=0x7f050003;
     }
     public static final class drawable {
-        public static final int ic_indiaonphone_logo=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int ic_mobile_number=0x7f020002;
-        public static final int ic_password=0x7f020003;
+        public static final int drawer_shadow=0x7f020000;
+        public static final int ic_community_white=0x7f020001;
+        public static final int ic_contacts_white=0x7f020002;
+        public static final int ic_drawer=0x7f020003;
+        public static final int ic_group_white=0x7f020004;
+        public static final int ic_indiaonphone_logo=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int ic_mobile_number=0x7f020007;
+        public static final int ic_password=0x7f020008;
+        public static final int ic_search=0x7f020009;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000a;
-        public static final int btnLogin=0x7f090007;
-        public static final int btnRegister=0x7f090009;
-        public static final int imgIndiaOnPhoneLogo=0x7f090004;
-        public static final int linearLayoutLoginUpperMarqueeTextRow=0x7f090000;
-        public static final int linearLayoutMobileNumberID=0x7f090006;
-        public static final int txtForgotPassword=0x7f090008;
-        public static final int txtLoginActivityLoginBar=0x7f090005;
-        public static final int txtTopLeft=0x7f090001;
-        public static final int txtTopRightBottom=0x7f090003;
-        public static final int txtTopRightUpper=0x7f090002;
+        public static final int action_example=0x7f090016;
+        public static final int action_search=0x7f090015;
+        public static final int action_settings=0x7f090017;
+        public static final int btnLogin=0x7f09000c;
+        public static final int btnRegister=0x7f09000e;
+        public static final int container=0x7f090001;
+        public static final int drawer_layout=0x7f090000;
+        public static final int edMobileNumberId=0x7f09000a;
+        public static final int edPassword=0x7f09000b;
+        public static final int imgIndiaOnPhoneLogo=0x7f090007;
+        public static final int linearLayoutDashboardBottomBar=0x7f09000f;
+        public static final int linearLayoutLoginUpperMarqueeTextRow=0x7f090003;
+        public static final int linearLayoutMobileNumberID=0x7f090009;
+        public static final int navigation_drawer=0x7f090002;
+        public static final int scrollviewDashboardMain=0x7f090013;
+        public static final int section_label=0x7f090014;
+        public static final int txtDashboardBottomBarCommunity=0x7f090011;
+        public static final int txtDashboardBottomBarContacts=0x7f090010;
+        public static final int txtDashboardBottomBarGroup=0x7f090012;
+        public static final int txtForgotPassword=0x7f09000d;
+        public static final int txtLoginActivityLoginBar=0x7f090008;
+        public static final int txtTopLeft=0x7f090004;
+        public static final int txtTopRightBottom=0x7f090006;
+        public static final int txtTopRightUpper=0x7f090005;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_dashboard=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int fragment_dashboard=0x7f030002;
+        public static final int fragment_navigation_drawer=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int dashboard=0x7f080000;
+        public static final int global=0x7f080001;
+        public static final int main=0x7f080002;
     }
     public static final class string {
+        public static final int action_example=0x7f060014;
+        public static final int action_search_text=0x7f060015;
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
+        public static final int community=0x7f060017;
+        public static final int contacts=0x7f060016;
         public static final int forgot_password=0x7f06000c;
+        public static final int group=0x7f060018;
         public static final int hello_world=0x7f060001;
         public static final int india_on_phone_logo_heading=0x7f060008;
         public static final int login_bar_login_text=0x7f060009;
         public static final int mobile_number_id_hint=0x7f06000a;
+        public static final int navigation_drawer_close=0x7f060013;
+        public static final int navigation_drawer_open=0x7f060012;
         public static final int password_hint=0x7f06000b;
         public static final int register_button_text=0x7f06000d;
         /**  Login Activity 
@@ -124,6 +156,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int text_top_right_message_text=0x7f060005;
         public static final int text_top_right_missed_call_number=0x7f060006;
         public static final int text_top_right_missed_call_text=0x7f060004;
+        /**  Dashboard Activity 
+         */
+        public static final int title_activity_dashboard=0x7f06000e;
+        public static final int title_section1=0x7f06000f;
+        public static final int title_section2=0x7f060010;
+        public static final int title_section3=0x7f060011;
     }
     public static final class style {
         /** 
