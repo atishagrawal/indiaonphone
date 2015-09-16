@@ -93,8 +93,10 @@
             android:layout_height="wrap_content" >
 
             <EditText
+                android:id="@+id/edMobileNumberId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:drawableLeft="@drawable/ic_mobile_number"
                 android:drawableStart="@drawable/ic_mobile_number"
                 android:hint="@string/mobile_number_id_hint" />
@@ -105,6 +107,7 @@
             android:layout_height="wrap_content" >
 
             <EditText
+                android:id="@+id/edPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_password"
@@ -119,6 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:background="@color/text_green"
+            android:onClick="loginMethod"
             android:text="@string/login_bar_login_text"
             android:textColor="@color/text_white"
             android:textSize="8pt" />

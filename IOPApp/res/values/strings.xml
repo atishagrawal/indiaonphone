@@ -14,15 +14,18 @@
     <string name="text_top_right_message_number">9013505050</string>
     <string name="india_on_phone_logo_heading">India On Phone Logo</string>
     <string name="login_bar_login_text">LOGIN</string>
-     <string name="register_bar_register_text">REGISTER</string>
     <string name="mobile_number_id_hint">MOBILE NUMBER - ID</string>
     <string name="password_hint">PASSWORD</string>
-    <string name="your_name_hint_register">YOUR NAME </string>
-    <string name="mobile_hint_register">MOBILE </string>
     <string name="forgot_password"><u>FORGOT PASSWORD</u></string>
     <string name="register_button_text">NEW USER REGISTRATION</string>
+
+    <!-- RegisterActivity -->
+    <string name="register_bar_register_text">REGISTER</string>
     <string name="title_activity_register">RegisterActivity</string>
-     <string-array name="UserType">
+    <string name="your_name_hint_register">YOUR NAME </string>
+    <string name="mobile_hint_register">MOBILE </string>
+
+    <string-array name="UserType">
         <item>User Type</item>
         <item>Individual</item>
         <item>Organisation</item>
@@ -33,6 +36,19 @@
         <item>Mumbai</item>
         <item>Banglore</item>
     </string-array>
-    
+
+    <!-- Dashboard Activity -->
+
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_search_text">Search</string>
+    <string name="contacts">Contacts</string>
+    <string name="community">Community</string>
+    <string name="group">Group</string>
 
 </resources>
