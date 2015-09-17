@@ -185,7 +185,7 @@
             android:id="@+id/btnExistingUserLogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_between_objects_40_dp"
+            android:layout_marginTop="@dimen/margin_between_objects_20_dp"
             android:background="@color/text_green"
             android:onClick="RegisterMethodExistingUser"
             android:text="@string/register_existingUser_button"
