@@ -44,5 +44,9 @@ public class MainActivity extends Activity {
 		startActivity(new Intent(MainActivity.this, Dashboard.class));
 
 	}
+	public void Register_Activity_startMethod(View view){
+		Intent registerIntent=new Intent(MainActivity.this,RegisterActivity.class);
+		startActivity(registerIntent);
+	}
 
 }

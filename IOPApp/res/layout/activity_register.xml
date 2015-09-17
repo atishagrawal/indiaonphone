@@ -54,6 +54,7 @@
                     android:textColor="@color/text_green" />
             </LinearLayout>
         </LinearLayout>
+
         <ImageView
             android:id="@+id/imgIndiaOnPhoneLogoRegister"
             android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:contentDescription="@string/india_on_phone_logo_heading"
             android:src="@drawable/ic_indiaonphone_logo" />
-         <TextView
+
+        <TextView
             android:id="@+id/txtLoginActivityRegisterBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -79,45 +81,107 @@
             android:layout_height="2dp"
             android:background="@color/text_green" />
 
+        <com.softedge.iopapp.floatingText.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_mobile_number" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/your_name_hint_register" />
+            </LinearLayout>
+        </com.softedge.iopapp.floatingText.FloatLabeledEditText>
+
+        <com.softedge.iopapp.floatingText.FloatLabeledEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone" />
+
+                <EditText
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mobile_hint_register"
+                    android:inputType="phone" />
+            </LinearLayout>
+        </com.softedge.iopapp.floatingText.FloatLabeledEditText>
+
         <LinearLayout
-            android:id="@+id/linearLayoutYourNameRegister"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_between_objects_10_dp"
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_people_outline_black_24dp" />
+
+            <Spinner
+                android:id="@+id/spinner_register_usertype"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <com.softedge.iopapp.floatingText.FloatLabeledEditText
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_mobile_number"
-                android:drawableStart="@drawable/ic_mobile_number"
-                android:hint="@string/your_name_hint_register" />
-        </com.softedge.iopapp.floatingText.FloatLabeledEditText>
-
-        <com.softedge.iopapp.floatingText.FloatLabeledEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_phone"
-                android:drawableStart="@drawable/ic_phone"
-                android:hint="@string/mobile_hint_register"
-                android:inputType="phone" />
-        </com.softedge.iopapp.floatingText.FloatLabeledEditText>
-        <Spinner android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner_register_usertype"
-               android:entries="@array/UserType"/>
-        <Spinner android:layout_width="fill_parent"
+            android:layout_marginBottom="@dimen/margin_between_objects_10_dp"
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_place_black_24dp" />
+
+            <Spinner
+                android:id="@+id/spinner_register_selectlocation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner_register_selectlocation"
-               android:entries="@array/SelectLocation"/>
+            android:layout_marginBottom="@dimen/margin_between_objects_10_dp"
+            android:layout_marginTop="@dimen/margin_between_objects_10_dp"
+            android:background="@color/text_green"
+            android:onClick="RegisterMethod"
+            android:text="@string/register_submit_button"
+            android:textColor="@color/text_white"
+            android:textSize="8pt" />
+
+        <Button
+            android:id="@+id/btnExistingUserLogin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_between_objects_40_dp"
+            android:background="@color/text_green"
+            android:onClick="RegisterMethodExistingUser"
+            android:text="@string/register_existingUser_button"
+            android:textColor="@color/text_white"
+            android:textSize="8pt" />
     </LinearLayout>
 
 </ScrollView>
