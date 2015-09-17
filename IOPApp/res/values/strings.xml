@@ -24,9 +24,10 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="your_name_hint_register">YOUR NAME </string>
     <string name="mobile_hint_register">MOBILE </string>
-
+    <string name="register_submit_button">SUBMIT </string>
+<string name="register_existingUser_button">Existing User Login </string>
     <string-array name="UserType">
-        <item>User Type</item>
+        <item>       User Type</item>
         <item>Individual</item>
         <item>Organisation</item>
     </string-array>
