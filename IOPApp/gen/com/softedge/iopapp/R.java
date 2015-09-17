@@ -153,27 +153,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int register=0x7f090003;
     }
     public static final class string {
-        public static final int action_example=0x7f06001a;
-        public static final int action_search_text=0x7f06001b;
+        public static final int action_example=0x7f06001e;
+        public static final int action_search_text=0x7f06001f;
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
-        public static final int community=0x7f06001d;
-        public static final int contacts=0x7f06001c;
+        public static final int community=0x7f060021;
+        public static final int contacts=0x7f060020;
         public static final int forgot_password=0x7f06000c;
-        public static final int group=0x7f06001e;
+        public static final int group=0x7f060022;
         public static final int hello_world=0x7f060001;
+        public static final int icon_mobile_number=0x7f060014;
+        public static final int icon_select_location=0x7f060016;
+        public static final int icon_user_type=0x7f060015;
+        public static final int icon_your_name=0x7f060013;
         public static final int india_on_phone_logo_heading=0x7f060008;
         public static final int login_bar_login_text=0x7f060009;
         public static final int mobile_hint_register=0x7f060011;
         public static final int mobile_number_id_hint=0x7f06000a;
-        public static final int navigation_drawer_close=0x7f060019;
-        public static final int navigation_drawer_open=0x7f060018;
+        public static final int navigation_drawer_close=0x7f06001d;
+        public static final int navigation_drawer_open=0x7f06001c;
         public static final int password_hint=0x7f06000b;
         /**  RegisterActivity 
          */
         public static final int register_bar_register_text=0x7f06000e;
         public static final int register_button_text=0x7f06000d;
-        public static final int register_existingUser_button=0x7f060013;
+        public static final int register_existingUser_button=0x7f060017;
         public static final int register_submit_button=0x7f060012;
         /**  Login Activity 
          */
@@ -184,11 +188,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int text_top_right_missed_call_text=0x7f060004;
         /**  Dashboard Activity 
          */
-        public static final int title_activity_dashboard=0x7f060014;
+        public static final int title_activity_dashboard=0x7f060018;
         public static final int title_activity_register=0x7f06000f;
-        public static final int title_section1=0x7f060015;
-        public static final int title_section2=0x7f060016;
-        public static final int title_section3=0x7f060017;
+        public static final int title_section1=0x7f060019;
+        public static final int title_section2=0x7f06001a;
+        public static final int title_section3=0x7f06001b;
         public static final int your_name_hint_register=0x7f060010;
     }
     public static final class style {

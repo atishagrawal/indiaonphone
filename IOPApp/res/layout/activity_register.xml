@@ -94,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/icon_your_name"
                     android:src="@drawable/ic_mobile_number" />
 
                 <EditText
@@ -116,6 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/icon_mobile_number"
                     android:src="@drawable/ic_phone" />
 
                 <EditText
@@ -136,6 +138,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/icon_user_type"
                 android:src="@drawable/ic_people_outline_black_24dp" />
 
             <Spinner
@@ -154,6 +157,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/icon_select_location"
                 android:src="@drawable/ic_place_black_24dp" />
 
             <Spinner
