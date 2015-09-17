@@ -3,7 +3,10 @@ package com.softedge.iopapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class RegisterActivity extends Activity {
@@ -27,6 +30,30 @@ public class RegisterActivity extends Activity {
 						R.layout.simple_spinner_dropdown_item);
 		spinner2.setAdapter(adapter_spinner_select_location);
 
+	}
+
+	public void registerSubmitMethod(View view) {
+		if (TextUtils.isEmpty(((EditText) findViewById(R.id.edYourName))
+				.getText().toString())) {
+
+			((EditText) findViewById(R.id.edYourName))
+					.setError("Please enter your name");
+			((EditText) findViewById(R.id.edYourName)).requestFocus();
+
+			return;
+
+		}
+
+		if (TextUtils.isEmpty(((EditText) findViewById(R.id.edMobileNumber))
+				.getText().toString())) {
+
+			((EditText) findViewById(R.id.edMobileNumber))
+					.setError("Please enter your Mobile Number");
+			((EditText) findViewById(R.id.edMobileNumber)).requestFocus();
+
+			return;
+		}
+		startActivity(new Intent(RegisterActivity.this, MainActivity.class));
 	}
 
 	@Override
