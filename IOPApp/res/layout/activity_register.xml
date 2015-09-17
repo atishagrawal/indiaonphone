@@ -54,6 +54,7 @@
                     android:textColor="@color/text_green" />
             </LinearLayout>
         </LinearLayout>
+
         <ImageView
             android:id="@+id/imgIndiaOnPhoneLogoRegister"
             android:layout_width="wrap_content"
@@ -62,7 +63,8 @@
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:contentDescription="@string/india_on_phone_logo_heading"
             android:src="@drawable/ic_indiaonphone_logo" />
-         <TextView
+
+        <TextView
             android:id="@+id/txtLoginActivityRegisterBar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -110,14 +112,18 @@
                 android:hint="@string/mobile_hint_register"
                 android:inputType="phone" />
         </com.softedge.iopapp.floatingText.FloatLabeledEditText>
-        <Spinner android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+
+        <Spinner
             android:id="@+id/spinner_register_usertype"
-               android:entries="@array/UserType"/>
-        <Spinner android:layout_width="fill_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:entries="@array/UserType" />
+
+        <Spinner
             android:id="@+id/spinner_register_selectlocation"
-               android:entries="@array/SelectLocation"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/SelectLocation" />
     </LinearLayout>
 
 </ScrollView>
