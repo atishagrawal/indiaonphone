@@ -32,7 +32,7 @@
     <string name="register_existingUser_button">Existing User Login </string>
 
     <string-array name="UserType">
-        <item>       User Type</item>
+        <item>User Type</item>
         <item>Individual</item>
         <item>Organisation</item>
     </string-array>
@@ -46,7 +46,7 @@
     <!-- Dashboard Activity -->
 
     <string name="title_activity_dashboard">Dashboard</string>
-    <string name="title_section1">Section 1</string>
+    <string name="title_section1">Dashboard</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
