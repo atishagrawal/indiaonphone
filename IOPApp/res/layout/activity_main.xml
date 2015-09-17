@@ -81,13 +81,6 @@
             android:layout_height="2dp"
             android:background="@color/text_green" />
 
-        <LinearLayout
-            android:id="@+id/linearLayoutMobileNumberID"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-        </LinearLayout>
-
         <com.softedge.iopapp.floatingText.FloatLabeledEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -96,10 +89,10 @@
                 android:id="@+id/edMobileNumberId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
                 android:drawableLeft="@drawable/ic_mobile_number"
                 android:drawableStart="@drawable/ic_mobile_number"
-                android:hint="@string/mobile_number_id_hint" />
+                android:hint="@string/mobile_number_id_hint"
+                android:inputType="number" />
         </com.softedge.iopapp.floatingText.FloatLabeledEditText>
 
         <com.softedge.iopapp.floatingText.FloatLabeledEditText
@@ -141,9 +134,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:onClick="registerMethod"
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:background="@color/text_green"
+            android:onClick="registerMethod"
             android:text="@string/register_button_text"
             android:textColor="@color/text_white"
             android:textSize="8pt" />
