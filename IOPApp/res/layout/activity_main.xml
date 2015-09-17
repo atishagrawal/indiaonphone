@@ -141,6 +141,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:onClick="registerMethod"
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:background="@color/text_green"
             android:text="@string/register_button_text"

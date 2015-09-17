@@ -45,4 +45,10 @@ public class MainActivity extends Activity {
 
 	}
 
+	public void registerMethod(View view) {
+
+		startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+		finish();
+	}
+
 }
