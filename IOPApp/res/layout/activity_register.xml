@@ -98,6 +98,7 @@
                     android:src="@drawable/ic_mobile_number" />
 
                 <EditText
+                    android:id="@+id/edYourName"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/your_name_hint_register" />
@@ -121,6 +122,7 @@
                     android:src="@drawable/ic_phone" />
 
                 <EditText
+                    android:id="@+id/edMobileNumber"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/mobile_hint_register"
@@ -173,7 +175,7 @@
             android:layout_marginBottom="@dimen/margin_between_objects_10_dp"
             android:layout_marginTop="@dimen/margin_between_objects_10_dp"
             android:background="@color/text_green"
-            android:onClick="RegisterMethod"
+            android:onClick="registerSubmitMethod"
             android:text="@string/register_submit_button"
             android:textColor="@color/text_white"
             android:textSize="8pt" />
