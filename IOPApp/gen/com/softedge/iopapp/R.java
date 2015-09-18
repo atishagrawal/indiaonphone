@@ -126,15 +126,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class drawable {
         public static final int drawer_shadow=0x7f020000;
-        public static final int ic_add_box_black_24dp=0x7f020001;
+        public static final int ic_add_contact=0x7f020001;
         public static final int ic_call_black_24dp=0x7f020002;
-        public static final int ic_chat_bubble_outline_black_24dp=0x7f020003;
-        public static final int ic_close_black_24dp=0x7f020004;
-        public static final int ic_community_white=0x7f020005;
-        public static final int ic_contact_phone_black_24dp=0x7f020006;
-        public static final int ic_contacts_white=0x7f020007;
-        public static final int ic_create_black_24dp=0x7f020008;
-        public static final int ic_drawer=0x7f020009;
+        public static final int ic_close_black_24dp=0x7f020003;
+        public static final int ic_community_white=0x7f020004;
+        public static final int ic_contacts_message=0x7f020005;
+        public static final int ic_contacts_white=0x7f020006;
+        public static final int ic_create_black_24dp=0x7f020007;
+        public static final int ic_drawer=0x7f020008;
+        public static final int ic_emergency_contacts=0x7f020009;
         public static final int ic_group_white=0x7f02000a;
         public static final int ic_indiaonphone_logo=0x7f02000b;
         public static final int ic_launcher=0x7f02000c;

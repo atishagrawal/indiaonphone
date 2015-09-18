@@ -7,43 +7,46 @@
         android:title="@string/contacts_context_menu_all_contacts"/>
     <item
         android:id="@+id/action_view_Add_Contacts"
-        android:orderInCategory="1"
+        android:icon="@drawable/ic_add_contact"
+        android:orderInCategory="2"
         android:title="@string/contacts_context_menu_add_contacts"/>
     <item
         android:id="@+id/action_view_Create_Contact"
-        android:orderInCategory="1"
+        android:orderInCategory="3"
         android:title="@string/contacts_context_menu_create_contacts"/>
     <item
         android:id="@+id/action_view_Delete_Contact"
-        android:orderInCategory="1"
+        android:orderInCategory="4"
         android:title="@string/contacts_context_menu_delete_contacts"/>
     <item
         android:id="@+id/action_view_All_Category"
-        android:orderInCategory="1"
+        android:orderInCategory="5"
         android:title="@string/contacts_context_menu_all_category"/>
     <item
         android:id="@+id/action_view_Create_Category"
-        android:orderInCategory="1"
+        android:orderInCategory="6"
         android:title="@string/contacts_context_menu_create_category"/>
     <item
         android:id="@+id/action_view_Government_Contact"
-        android:orderInCategory="1"
+        android:orderInCategory="7"
         android:title="@string/contacts_context_menu_government_contact"/>
     <item
         android:id="@+id/action_view_Media_Contact"
-        android:orderInCategory="1"
+        android:orderInCategory="8"
         android:title="@string/contacts_context_menu_media_contact"/>
     <item
         android:id="@+id/action_view_Emergency_Contact"
-        android:orderInCategory="1"
+        android:icon="@drawable/ic_emergency_contacts"
+        android:orderInCategory="9"
         android:title="@string/contacts_context_menu_emergency_contact"/>
     <item
         android:id="@+id/action_view_Helplines"
-        android:orderInCategory="1"
+        android:orderInCategory="10"
         android:title="@string/contacts_context_menu_helplines"/>
     <item
         android:id="@+id/action_view_Messages"
-        android:orderInCategory="1"
+        android:icon="@drawable/ic_contacts_message"
+        android:orderInCategory="11"
         android:title="@string/contacts_context_menu_message"/>
 
 </menu>
