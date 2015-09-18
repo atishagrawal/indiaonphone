@@ -4,6 +4,7 @@
     <item
         android:id="@+id/action_view_All_Contacts"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_all_contacts"
         android:title="@string/contacts_context_menu_all_contacts"/>
     <item
         android:id="@+id/action_view_Add_Contacts"
@@ -13,26 +14,32 @@
     <item
         android:id="@+id/action_view_Create_Contact"
         android:orderInCategory="3"
+        android:icon="@drawable/ic_createcontact"
         android:title="@string/contacts_context_menu_create_contacts"/>
     <item
         android:id="@+id/action_view_Delete_Contact"
         android:orderInCategory="4"
+        android:icon="@drawable/ic_delete_contact"
         android:title="@string/contacts_context_menu_delete_contacts"/>
     <item
         android:id="@+id/action_view_All_Category"
         android:orderInCategory="5"
+        android:icon="@drawable/ic_joined_group"
         android:title="@string/contacts_context_menu_all_category"/>
     <item
         android:id="@+id/action_view_Create_Category"
         android:orderInCategory="6"
+        android:icon="@drawable/ic_create_category"
         android:title="@string/contacts_context_menu_create_category"/>
     <item
         android:id="@+id/action_view_Government_Contact"
         android:orderInCategory="7"
+        android:icon="@drawable/ic_government_contact"
         android:title="@string/contacts_context_menu_government_contact"/>
     <item
         android:id="@+id/action_view_Media_Contact"
         android:orderInCategory="8"
+        android:icon="@drawable/ic_media_contact"
         android:title="@string/contacts_context_menu_media_contact"/>
     <item
         android:id="@+id/action_view_Emergency_Contact"
@@ -42,6 +49,7 @@
     <item
         android:id="@+id/action_view_Helplines"
         android:orderInCategory="10"
+        android:icon="@drawable/ic_helplines"
         android:title="@string/contacts_context_menu_helplines"/>
     <item
         android:id="@+id/action_view_Messages"

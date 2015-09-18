@@ -3,22 +3,27 @@
   <item
         android:id="@+id/action_view_All_Group"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_all_group"
         android:title="@string/group_context_all_group"/>
     <item
         android:id="@+id/action_view_My_Group"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_my_community"
         android:title="@string/group_context_my_group"/>
      <item
         android:id="@+id/action_view_Joined_Group"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_joined_group"
         android:title="@string/group_context_joined_group"/>
     <item
         android:id="@+id/action_view_Create_Group"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_createcontact"
         android:title="@string/group_context_create_group"/>
         <item
         android:id="@+id/action_view_Favourite_Group"
         android:orderInCategory="1"
+        android:icon="@drawable/ic_favorite_group"
         android:title="@string/group_context_favourite_group"/>
     
 

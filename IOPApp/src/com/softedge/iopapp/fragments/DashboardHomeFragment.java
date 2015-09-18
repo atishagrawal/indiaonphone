@@ -94,7 +94,7 @@ public class DashboardHomeFragment extends Fragment {
 		public void onClick(View v) {
 
 			IconContextMenu cm = new IconContextMenu(mContext,
-					R.menu.contacts_contextmenu);
+					R.menu.community_contextmenu);
 
 			cm.show();
 
@@ -107,7 +107,7 @@ public class DashboardHomeFragment extends Fragment {
 		public void onClick(View v) {
 
 			IconContextMenu cm = new IconContextMenu(mContext,
-					R.menu.contacts_contextmenu);
+					R.menu.group_contextmenu);
 
 			cm.show();
 

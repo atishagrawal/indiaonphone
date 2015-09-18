@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/icon_user_type"
-                android:src="@drawable/ic_people_outline_black_24dp" />
+                android:src="@drawable/ic_all_group" />
 
             <Spinner
                 android:id="@+id/spinner_register_usertype"
