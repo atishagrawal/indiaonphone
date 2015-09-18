@@ -201,6 +201,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int app_name=0x7f060000;
         public static final int community=0x7f060021;
         public static final int contacts=0x7f060020;
+        public static final int contacts_context_menu_add_contacts=0x7f060024;
+        public static final int contacts_context_menu_all_category=0x7f060027;
+        /**  ContextMenu Strings 
+         */
+        public static final int contacts_context_menu_all_contacts=0x7f060023;
+        public static final int contacts_context_menu_create_category=0x7f060028;
+        public static final int contacts_context_menu_create_contacts=0x7f060025;
+        public static final int contacts_context_menu_delete_contacts=0x7f060026;
+        public static final int contacts_context_menu_emergency_contact=0x7f06002b;
+        public static final int contacts_context_menu_government_contact=0x7f060029;
+        public static final int contacts_context_menu_helplines=0x7f06002c;
+        public static final int contacts_context_menu_media_contact=0x7f06002a;
+        public static final int contacts_context_menu_message=0x7f06002d;
         public static final int forgot_password=0x7f06000c;
         public static final int group=0x7f060022;
         public static final int hello_world=0x7f060001;
