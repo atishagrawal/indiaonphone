@@ -142,20 +142,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_search=0x7f02000e;
     }
     public static final class id {
-        public static final int action_example=0x7f0a002e;
-        public static final int action_search=0x7f0a002d;
-        public static final int action_settings=0x7f0a002f;
-        public static final int action_view_Add_Contacts=0x7f0a0023;
-        public static final int action_view_All_Category=0x7f0a0026;
-        public static final int action_view_All_Contacts=0x7f0a0022;
-        public static final int action_view_Create_Category=0x7f0a0027;
-        public static final int action_view_Create_Contact=0x7f0a0024;
-        public static final int action_view_Delete_Contact=0x7f0a0025;
-        public static final int action_view_Emergency_Contact=0x7f0a002a;
-        public static final int action_view_Government_Contact=0x7f0a0028;
-        public static final int action_view_Helplines=0x7f0a002b;
-        public static final int action_view_Media_Contact=0x7f0a0029;
-        public static final int action_view_Messages=0x7f0a002c;
+        public static final int action_example=0x7f0a0030;
+        public static final int action_search=0x7f0a002f;
+        public static final int action_settings=0x7f0a0031;
+        public static final int action_view_Add_Contacts=0x7f0a0025;
+        public static final int action_view_All_Category=0x7f0a0028;
+        public static final int action_view_All_Community=0x7f0a0022;
+        public static final int action_view_All_Contacts=0x7f0a0024;
+        public static final int action_view_All_Group=0x7f0a0032;
+        public static final int action_view_Create_Category=0x7f0a0029;
+        public static final int action_view_Create_Contact=0x7f0a0026;
+        public static final int action_view_Create_Group=0x7f0a0035;
+        public static final int action_view_Delete_Contact=0x7f0a0027;
+        public static final int action_view_Emergency_Contact=0x7f0a002c;
+        public static final int action_view_Favourite_Group=0x7f0a0036;
+        public static final int action_view_Government_Contact=0x7f0a002a;
+        public static final int action_view_Helplines=0x7f0a002d;
+        public static final int action_view_Joined_Group=0x7f0a0034;
+        public static final int action_view_Media_Contact=0x7f0a002b;
+        public static final int action_view_Messages=0x7f0a002e;
+        public static final int action_view_My_Group=0x7f0a0033;
+        public static final int action_view_My_community=0x7f0a0023;
         public static final int btnExistingUserLogin=0x7f0a0019;
         public static final int btnLogin=0x7f0a000b;
         public static final int btnRegister=0x7f0a000d;
@@ -200,11 +207,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int simple_spinner_dropdown_item=0x7f030005;
     }
     public static final class menu {
-        public static final int contacts_contextmenu=0x7f090000;
-        public static final int dashboard=0x7f090001;
-        public static final int global=0x7f090002;
-        public static final int main=0x7f090003;
-        public static final int register=0x7f090004;
+        public static final int community_contextmenu=0x7f090000;
+        public static final int contacts_contextmenu=0x7f090001;
+        public static final int dashboard=0x7f090002;
+        public static final int global=0x7f090003;
+        public static final int group_contextmenu=0x7f090004;
+        public static final int main=0x7f090005;
+        public static final int register=0x7f090006;
     }
     public static final class string {
         public static final int action_example=0x7f06001e;
