@@ -56,28 +56,32 @@
     <string name="contacts">Contacts</string>
     <string name="community">Community</string>
     <string name="group">Group</string>
-    
-    
-    
-    
-    
-    <!-- ContextMenu Strings -->
-    
-<string name="contacts_context_menu_all_contacts">All Contacts</string>
-<string name="contacts_context_menu_add_contacts">Add Contact</string>
-<string name="contacts_context_menu_create_contacts">Create Contact</string>
-<string name="contacts_context_menu_delete_contacts"></string>
-<string name="contacts_context_menu_all_category"></string>
-<string name="contacts_context_menu_create_category"></string>
-<string name="contacts_context_menu_government_contact"></string>
-<string name="contacts_context_menu_media_contact"></string>
-<string name="contacts_context_menu_emergency_contact"></string>
-<string name="contacts_context_menu_helplines"></string>
-<string name="contacts_context_menu_message"></string>
 
+    <!-- Contact ContextMenu Strings -->
 
+    <string name="contacts_context_menu_all_contacts">All Contacts</string>
+    <string name="contacts_context_menu_add_contacts">Add Contact</string>
+    <string name="contacts_context_menu_create_contacts">Create Contact</string>
+    <string name="contacts_context_menu_delete_contacts">Delete Contact</string>
+    <string name="contacts_context_menu_all_category">All Category</string>
+    <string name="contacts_context_menu_create_category">Create Category</string>
+    <string name="contacts_context_menu_government_contact">Government Contacts</string>
+    <string name="contacts_context_menu_media_contact">Media Contacts</string>
+    <string name="contacts_context_menu_emergency_contact">Emergency Contacts</string>
+    <string name="contacts_context_menu_helplines">Helplines</string>
+    <string name="contacts_context_menu_message">Message</string>
 
-    
-    
+    <!-- Community ContextMenu Strings -->
+
+    <string name="community_context_all_community">All Community</string>
+    <string name="community_context_my_community">My Community</string>
+
+    <!-- Group ContextMenu Strings -->
+
+    <string name="group_context_all_group">All Group</string>
+    <string name="group_context_my_group">My Group</string>
+    <string name="group_context_joined_group">Joined Group</string>
+    <string name="group_context_create_group">Create Group</string>
+    <string name="group_context_favourite_group">Favourite Group</string>
 
 </resources>
