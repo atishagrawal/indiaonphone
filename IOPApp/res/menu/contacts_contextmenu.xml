@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_view_All_Contacts"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_all_contacts"/>
+    <item
+        android:id="@+id/action_view_Add_Contacts"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_add_contacts"/>
+    <item
+        android:id="@+id/action_view_Create_Contact"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_create_contacts"/>
+    <item
+        android:id="@+id/action_view_Delete_Contact"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_delete_contacts"/>
+    <item
+        android:id="@+id/action_view_All_Category"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_all_category"/>
+    <item
+        android:id="@+id/action_view_Create_Category"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_create_category"/>
+    <item
+        android:id="@+id/action_view_Government_Contact"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_government_contact"/>
+    <item
+        android:id="@+id/action_view_Media_Contact"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_media_contact"/>
+    <item
+        android:id="@+id/action_view_Emergency_Contact"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_emergency_contact"/>
+    <item
+        android:id="@+id/action_view_Helplines"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_helplines"/>
+    <item
+        android:id="@+id/action_view_Messages"
+        android:orderInCategory="1"
+        android:title="@string/contacts_context_menu_message"/>
+
+</menu>

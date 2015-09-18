@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+ <item
+        android:id="@+id/action_view_All_Community"
+        android:orderInCategory="1"
+        android:title="@string/community_context_all_community"/>
+    <item
+        android:id="@+id/action_view_My_community"
+        android:orderInCategory="1"
+        android:title="@string/community_context_my_community"/>
+</menu>
