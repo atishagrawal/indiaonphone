@@ -212,8 +212,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int dashboard=0x7f090002;
         public static final int global=0x7f090003;
         public static final int group_contextmenu=0x7f090004;
-        public static final int main=0x7f090005;
-        public static final int register=0x7f090006;
     }
     public static final class string {
         public static final int action_example=0x7f06001e;
