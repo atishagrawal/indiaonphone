@@ -200,10 +200,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int action_settings=0x7f060002;
         public static final int app_name=0x7f060000;
         public static final int community=0x7f060021;
+        /**  Community ContextMenu Strings 
+         */
+        public static final int community_context_all_community=0x7f06002e;
+        public static final int community_context_my_community=0x7f06002f;
         public static final int contacts=0x7f060020;
         public static final int contacts_context_menu_add_contacts=0x7f060024;
         public static final int contacts_context_menu_all_category=0x7f060027;
-        /**  ContextMenu Strings 
+        /**  Contact ContextMenu Strings 
          */
         public static final int contacts_context_menu_all_contacts=0x7f060023;
         public static final int contacts_context_menu_create_category=0x7f060028;
@@ -216,6 +220,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int contacts_context_menu_message=0x7f06002d;
         public static final int forgot_password=0x7f06000c;
         public static final int group=0x7f060022;
+        /**  Group ContextMenu Strings 
+         */
+        public static final int group_context_all_group=0x7f060030;
+        public static final int group_context_create_group=0x7f060033;
+        public static final int group_context_favourite_group=0x7f060034;
+        public static final int group_context_joined_group=0x7f060032;
+        public static final int group_context_my_group=0x7f060031;
         public static final int hello_world=0x7f060001;
         public static final int icon_mobile_number=0x7f060014;
         public static final int icon_select_location=0x7f060016;
