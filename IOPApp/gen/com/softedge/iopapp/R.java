@@ -126,20 +126,26 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class drawable {
         public static final int drawer_shadow=0x7f020000;
-        public static final int ic_community_white=0x7f020001;
-        public static final int ic_contacts_white=0x7f020002;
-        public static final int ic_drawer=0x7f020003;
-        public static final int ic_group_white=0x7f020004;
-        public static final int ic_indiaonphone_logo=0x7f020005;
-        public static final int ic_launcher=0x7f020006;
-        public static final int ic_mobile_number=0x7f020007;
-        public static final int ic_navigation_drawer=0x7f020008;
-        public static final int ic_password=0x7f020009;
-        public static final int ic_people_outline_black_24dp=0x7f02000a;
-        public static final int ic_person_icon=0x7f02000b;
-        public static final int ic_phone=0x7f02000c;
-        public static final int ic_place_black_24dp=0x7f02000d;
-        public static final int ic_search=0x7f02000e;
+        public static final int ic_add_box_black_24dp=0x7f020001;
+        public static final int ic_call_black_24dp=0x7f020002;
+        public static final int ic_chat_bubble_outline_black_24dp=0x7f020003;
+        public static final int ic_close_black_24dp=0x7f020004;
+        public static final int ic_community_white=0x7f020005;
+        public static final int ic_contact_phone_black_24dp=0x7f020006;
+        public static final int ic_contacts_white=0x7f020007;
+        public static final int ic_create_black_24dp=0x7f020008;
+        public static final int ic_drawer=0x7f020009;
+        public static final int ic_group_white=0x7f02000a;
+        public static final int ic_indiaonphone_logo=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int ic_mobile_number=0x7f02000d;
+        public static final int ic_navigation_drawer=0x7f02000e;
+        public static final int ic_password=0x7f02000f;
+        public static final int ic_people_outline_black_24dp=0x7f020010;
+        public static final int ic_person_icon=0x7f020011;
+        public static final int ic_phone=0x7f020012;
+        public static final int ic_place_black_24dp=0x7f020013;
+        public static final int ic_search=0x7f020014;
     }
     public static final class id {
         public static final int action_example=0x7f0a0030;
